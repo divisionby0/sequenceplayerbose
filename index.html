@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Bose</title>
-
+    <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="stylesheet" href="style.css">
     <script type="application/javascript" src="js/libs/jQuery/jquery-3.1.1.min.js"></script>
 
@@ -18,6 +18,7 @@
 
     <script type="application/javascript" src="js/div0/animation/AnimationViewEvent.js"></script>
     <script type="application/javascript" src="js/sequences.js"></script>
+    <script type="application/javascript" src="js/Logger.js"></script>
     <script type="application/javascript" src="js/div0/Sequence.js"></script>
     <script type="application/javascript" src="js/div0/animation/PlayerView.js"></script>
     <script type="application/javascript" src="js/div0/animation/AnimationPlayer.js"></script>
@@ -32,7 +33,10 @@
 </head>
 <body>
     <div id="animation">
-
+        <div id="animationControl"><button id="restartButton">Restart</button></div>
+    </div>
+    <div style="float: left; display: block">
+        <textarea id="logContainer" cols="50" rows="20"></textarea>
     </div>
 </body>
 </html>

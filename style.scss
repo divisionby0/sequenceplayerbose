@@ -3,12 +3,14 @@ body{
   height: 100%;
   margin: 0;
   background-color: aliceblue;
+  overflow: hidden;
 }
 #animation{
-  width: 40%;
+  width: 60%;
   height: auto;
   display: block;
   float: left;
   background-size: cover;
   background-repeat: no-repeat;
+  background-color: red;
 }

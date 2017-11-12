@@ -1,6 +1,7 @@
 ///<reference path="../../libs/jQuery/jqueryTS/jquery.d.ts"/>
 ///<reference path="../Sequence.ts"/>
 ///<reference path="PlayerView.ts"/>
+///<reference path="../../Logger.ts"/>
 class AnimationPlayer {
     // model
     private container:any;
@@ -30,13 +31,21 @@ class AnimationPlayer {
     
 
     private createAnimation():void{
+        Logger.info("createAnimation");
         var sequenceTotalFrames:number = this.currentSequence.getTotalFrames();
         this.incrementingPositionYProcent = 100/sequenceTotalFrames;
 
-        this.incrementCoeff = this.container.width()/this.baseAnimationWidth;
+        Logger.info("view width="+this.view.getWidth());
+
+        this.incrementCoeff = this.view.getWidth()/this.baseAnimationWidth;
         this.animationFrameHeight = Math.round(this.currentSequence.getSequenceHeight()/this.currentSequence.getTotalFrames()*this.incrementCoeff);
 
-        this.container.height(this.baseAnimationHeight*this.incrementCoeff);
+        Logger.info("this.animationFrameHeight="+this.animationFrameHeight);
+
+        //this.container.height(this.baseAnimationHeight*this.incrementCoeff);
+
+        this.view.setHeight(this.baseAnimationHeight*this.incrementCoeff);
+        //this.animationCounter = 1;
 
         var src:string = 'img/'+ this.currentSequence.getId() + '.jpg';
         this.updateView(src, this.animationFrameHeight*this.animationCounter);
@@ -62,16 +71,14 @@ class AnimationPlayer {
 
         if(this.animationCounter < this.currentSequence.getTotalFrames()){
             this.currentIncrementingPositionYProcent+=this.incrementingPositionYProcent;
-
+            Logger.info("animationCounter="+this.animationCounter);
+            Logger.info("animationFrameHeight="+this.animationFrameHeight);
+            Logger.info("="+this.animationFrameHeight*this.animationCounter);
             this.updateView(null, this.animationFrameHeight*this.animationCounter);
-
-            if(this.currentTimeout){
-                clearTimeout(this.currentTimeout);
-            }
             this.currentTimeout = setTimeout(()=>this.onAnimationTick(), this.currentSequence.getInterval());
         }
         else{
-            //console.log("Finished");
+            this.updateView(null, this.animationFrameHeight*(this.animationCounter-1));
         }
     }
 
