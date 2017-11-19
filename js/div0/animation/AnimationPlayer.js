@@ -7,9 +7,9 @@ var AnimationPlayer = (function () {
         var _this = this;
         this.animationCounter = 0;
         this.incrementingPositionYProcent = 0;
-        this.currentIncrementingPositionYProcent = 0;
         this.baseAnimationWidth = 590;
         this.baseAnimationHeight = 460;
+        this.aspect = 1.2826;
         this.incrementCoeff = 1;
         this.container = container;
         this.currentSequence = currentSequence;
@@ -24,10 +24,13 @@ var AnimationPlayer = (function () {
         this.incrementingPositionYProcent = 100 / sequenceTotalFrames;
         Logger.info("view width=" + this.view.getWidth());
         this.incrementCoeff = this.view.getWidth() / this.baseAnimationWidth;
-        this.animationFrameHeight = Math.round(this.currentSequence.getSequenceHeight() / this.currentSequence.getTotalFrames() * this.incrementCoeff);
+        //this.animationFrameHeight = Math.round(this.currentSequence.getSequenceHeight()/this.currentSequence.getTotalFrames()*this.incrementCoeff);
+        this.animationFrameHeight = this.view.getWidth() / this.aspect;
         Logger.info("this.animationFrameHeight=" + this.animationFrameHeight);
         //this.container.height(this.baseAnimationHeight*this.incrementCoeff);
-        this.view.setHeight(this.baseAnimationHeight * this.incrementCoeff);
+        var viewHeight = this.baseAnimationHeight * this.incrementCoeff;
+        this.view.setHeight(viewHeight);
+        Logger.info("viewHeight= " + viewHeight);
         //this.animationCounter = 1;
         var src = 'img/' + this.currentSequence.getId() + '.jpg';
         this.updateView(src, this.animationFrameHeight * this.animationCounter);
@@ -48,11 +51,11 @@ var AnimationPlayer = (function () {
         var _this = this;
         this.animationCounter += 1;
         if (this.animationCounter < this.currentSequence.getTotalFrames()) {
-            this.currentIncrementingPositionYProcent += this.incrementingPositionYProcent;
             Logger.info("animationCounter=" + this.animationCounter);
             Logger.info("animationFrameHeight=" + this.animationFrameHeight);
-            Logger.info("=" + this.animationFrameHeight * this.animationCounter);
-            this.updateView(null, this.animationFrameHeight * this.animationCounter);
+            var offset = this.animationFrameHeight * this.animationCounter;
+            Logger.info("offset =" + offset);
+            this.updateView(null, offset);
             this.currentTimeout = setTimeout(function () { return _this.onAnimationTick(); }, this.currentSequence.getInterval());
         }
         else {

@@ -22,9 +22,10 @@ class PlayerView {
     
     public setHeight(value:number):void{
         this.container.height(value);
+        
     }
     public getWidth():number{
-        return this.container.width();
+        return Math.ceil(this.container.width());
     }
     
     public updateFrame(value:number):void{

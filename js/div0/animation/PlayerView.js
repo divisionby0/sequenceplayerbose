@@ -20,7 +20,7 @@ var PlayerView = (function () {
         this.container.height(value);
     };
     PlayerView.prototype.getWidth = function () {
-        return this.container.width();
+        return Math.ceil(this.container.width());
     };
     PlayerView.prototype.updateFrame = function (value) {
         this.container.css({ backgroundPosition: '0px -' + value + 'px' });

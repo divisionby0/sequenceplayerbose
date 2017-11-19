@@ -1,1 +1,1 @@
-var SequencesData = [{id:1, total:12, interval:120,sequenceHeight:5520}];
+var SequencesData = [{id:1, total:21, interval:70,sequenceHeight:9660, video:"video/18fps/01.mp4"},{id:2, total:21, interval:70,sequenceHeight:9660, video:"video/18fps/01.mp4"}];

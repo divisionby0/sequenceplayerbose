@@ -10,6 +10,7 @@ body {
   height: auto;
   display: block;
   float: left;
+  overflow: hidden;
   background-size: cover;
   background-repeat: no-repeat;
   background-color: red; }
