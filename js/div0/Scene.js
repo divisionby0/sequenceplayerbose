@@ -1,7 +1,8 @@
 var Scene = (function () {
-    function Scene(index, useAnimation, animationUrl, infoText, whyText) {
+    function Scene(index, counter, useAnimation, animationUrl, infoText, whyText) {
         this.useAnimation = true;
         this.index = index;
+        this.counter = counter;
         this.useAnimation = useAnimation;
         this.animationUrl = animationUrl;
         this.infoText = infoText;
@@ -18,6 +19,9 @@ var Scene = (function () {
     };
     Scene.prototype.getWhyText = function () {
         return this.whyText;
+    };
+    Scene.prototype.getCounter = function () {
+        return this.counter;
     };
     return Scene;
 }());

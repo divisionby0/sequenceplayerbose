@@ -5,24 +5,26 @@
 var AppGifs = (function () {
     function AppGifs() {
         this.currentSequenceIndex = 0;
-        //private gifs:string[] = ["img/gifs/1.gif", "img/gifs/2.gif", "img/gifs/3.gif", "img/gifs/4.gif"];
-        this.gifs = ["img/gifs/1.gif", "img/gifs/2.gif", "img/gifs/3.gif", "img/gifs/4.gif"];
         this.parseScenes();
         this.createPreloadCollection();
-        //console.log("start preloading images ",this.gifs);
-        //preloadImages(this.gifs, (value)=>this.preloadProgress(value), ()=>this.preloadFinished());
+        this.preloadAnimation();
     }
     AppGifs.prototype.parseScenes = function () {
         this.scenes = ScenesParser.parse(Scenes);
     };
     AppGifs.prototype.createPreloadCollection = function () {
+        this.gifs = [];
         var iterator = this.scenes.getIterator();
-        while (iterator.next()) {
+        while (iterator.hasNext()) {
             var scene = iterator.next();
             if (scene.isUseAnimation()) {
                 this.gifs.push(scene.getAnimationUrl());
             }
         }
+    };
+    AppGifs.prototype.preloadAnimation = function () {
+        var _this = this;
+        preloadImages(this.gifs, function (value) { return _this.preloadProgress(value); }, function () { return _this.preloadFinished(); });
     };
     AppGifs.prototype.start = function () {
         var _this = this;
@@ -49,7 +51,6 @@ var AppGifs = (function () {
         $("#gifAnimation").attr("src", this.gifs[this.currentSequenceIndex]);
     };
     AppGifs.prototype.preloadProgress = function (value) {
-        console.log("gifs", this.gifs);
         var progress = Math.round(100 - value / this.gifs.length * 100);
         console.log("progress ", progress);
         $("#preloadProgress").text(progress + " %");

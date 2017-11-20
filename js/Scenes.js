@@ -1,6 +1,7 @@
 var Scenes = [
     {
         index:0,
+        counter:1,
         useAnimation:true,
         animationUrl:"img/gifs/1.gif",
         infoText:"Найти три-четыре квадратных метра под колонки и сабвуфер",
@@ -8,6 +9,7 @@ var Scenes = [
     },
     {
         index:1,
+        counter:2,
         useAnimation:true,
         animationUrl:"img/gifs/2.gif",
         infoText:"Потратить пару выходных на подбор компонентов аудиосистемы и кабелей",
@@ -15,6 +17,7 @@ var Scenes = [
     },
     {
         index:2,
+        counter:3,
         useAnimation:true,
         animationUrl:"img/gifs/3.gif",
         infoText:"Поставить диван ровно в центре комнаты",
@@ -22,9 +25,16 @@ var Scenes = [
     },
     {
         index:3,
+        counter:4,
         useAnimation:true,
         animationUrl:"img/gifs/4.gif",
         infoText:"Приготовиться потратиться: настоящий Hi-Fi и Hi-End стоят очень дорого",
         whyText:"Маленькие объёмы выпуска, использование ручного труда при производстве традиционных аудиосистем, а также исторически навязанный потребителю стереотип о безоговорочном качестве звучания (за счёт чего увеличивается маржинальность для дилеров и дистрибьюторов) делают цены на Hi-Fi-аппаратуру неоправданно высокими."
+    },
+    {
+        index:4,
+        counter:0,
+        useAnimation:false,
+        infoText:"Почему Bose — оптимальная альтернатива?"
     }
 ];
