@@ -9,7 +9,6 @@ var AnimationPlayer = (function () {
         this.incrementingPositionYProcent = 0;
         this.baseAnimationWidth = 590;
         this.baseAnimationHeight = 460;
-        this.aspect = 1.2826;
         this.incrementCoeff = 1;
         this.container = container;
         this.currentSequence = currentSequence;
@@ -24,8 +23,26 @@ var AnimationPlayer = (function () {
         this.incrementingPositionYProcent = 100 / sequenceTotalFrames;
         Logger.info("view width=" + this.view.getWidth());
         this.incrementCoeff = this.view.getWidth() / this.baseAnimationWidth;
-        //this.animationFrameHeight = Math.round(this.currentSequence.getSequenceHeight()/this.currentSequence.getTotalFrames()*this.incrementCoeff);
-        this.animationFrameHeight = this.view.getWidth() / this.aspect;
+        this.points = new Array();
+        for (var i = 0; i < this.currentSequence.getTotalFrames(); i++) {
+            var point;
+            if (i < this.currentSequence.getTotalFrames() - 1) {
+                if (!this.isEven(i)) {
+                    point = Math.floor(this.baseAnimationHeight * i * this.incrementCoeff - this.currentSequence.getPointCompensation());
+                }
+                else {
+                    point = Math.floor(this.baseAnimationHeight * i * this.incrementCoeff);
+                }
+            }
+            else {
+                point = Math.floor(this.baseAnimationHeight * i * this.incrementCoeff);
+            }
+            this.points.push(point);
+            Logger.info("point: " + point);
+        }
+        Logger.info("this.incrementCoeff=" + this.incrementCoeff);
+        this.animationFrameHeight = this.currentSequence.getSequenceHeight() / this.currentSequence.getTotalFrames() * this.incrementCoeff;
+        //this.animationFrameHeight = this.view.getWidth()/this.aspect;
         Logger.info("this.animationFrameHeight=" + this.animationFrameHeight);
         //this.container.height(this.baseAnimationHeight*this.incrementCoeff);
         var viewHeight = this.baseAnimationHeight * this.incrementCoeff;
@@ -53,18 +70,29 @@ var AnimationPlayer = (function () {
         if (this.animationCounter < this.currentSequence.getTotalFrames()) {
             Logger.info("animationCounter=" + this.animationCounter);
             Logger.info("animationFrameHeight=" + this.animationFrameHeight);
-            var offset = this.animationFrameHeight * this.animationCounter;
+            //var offset:number = this.animationFrameHeight*this.animationCounter;
+            var offset = this.points[this.animationCounter];
             Logger.info("offset =" + offset);
             this.updateView(null, offset);
             this.currentTimeout = setTimeout(function () { return _this.onAnimationTick(); }, this.currentSequence.getInterval());
         }
         else {
-            this.updateView(null, this.animationFrameHeight * (this.animationCounter - 1));
+            var offset = this.points[this.animationCounter - 1];
+            //this.updateView(null, this.animationFrameHeight*(this.animationCounter-1));
+            this.updateView(null, offset);
         }
     };
     AnimationPlayer.prototype.onWindowResized = function () {
         this.animationCounter = 0;
         this.createAnimation();
+    };
+    AnimationPlayer.prototype.isEven = function (num) {
+        if (num % 2 === 0) {
+            return true;
+        }
+        else {
+            return false;
+        }
     };
     return AnimationPlayer;
 }());

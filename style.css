@@ -1,18 +1,152 @@
-body {
+body, html {
   width: 100%;
   height: 100%;
   margin: 0;
   background-color: aliceblue;
-  overflow: hidden; }
+  overflow: hidden;
+  font-family: 'PT Sans', sans-serif;
+  -webkit-font-smoothing: antialiased; }
+
+.noselect {
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently
+               supported by Chrome and Opera */ }
+
+.floatLeft, .content, #animation, .infoContentContainer, .navigationButton, .footer, .footer .footerControls, .footer .footerControls .footerControlsButton, .footer .footerLogoContainer {
+  float: left;
+  display: block; }
+
+.flexbox, .wrapper, .gifAnimationContainer, .footer .footerControls {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.flexboxVertical, .footer .footerLogoContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; }
+
+.wrapper {
+  width: 100%;
+  height: 100%; }
+
+.container {
+  width: 70%;
+  height: 90%;
+  margin: 0 auto; }
+
+.content {
+  width: 100%;
+  height: 83%;
+  background-color: greenyellow; }
 
 #animation {
-  width: 60%;
-  height: auto;
+  width: 45%;
+  background-size: cover; }
+
+.infoContentContainer {
+  width: 50%;
+  height: 100%;
+  background-color: yellow; }
+  .infoContentContainer .socials {
+    width: 100%;
+    height: 15%;
+    background-color: #00A000; }
+  .infoContentContainer .smallNavigation {
+    width: 100%;
+    height: 8%;
+    background-color: #1b6d85; }
+  .infoContentContainer .sceneTextContainer {
+    width: 100%;
+    height: 62%;
+    background-color: #49afcd;
+    font-weight: 700;
+    font-size: 2vw;
+    padding-left: 7px; }
+  .infoContentContainer .bigNavigation {
+    width: 100%;
+    height: 15%;
+    background-color: red; }
+
+.gifAnimationContainer {
+  float: right;
+  width: 50%;
+  height: 100%;
+  background-color: #5f3f3f; }
+
+#gifAnimation {
+  width: 100%;
+  height: auto; }
+
+.replay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 47px;
+  height: 47px;
   display: block;
-  float: left;
-  overflow: hidden;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-color: red; }
+  float: right;
+  background: url("assets/replay.png");
+  cursor: pointer;
+  opacity: 0.7; }
+
+.replay:hover {
+  opacity: 1;
+  background: url("assets/replay-hover.png");
+  width: 129px;
+  height: 47px; }
+
+.button {
+  background: #F47A20;
+  display: block;
+  text-decoration: none;
+  border-radius: 3vw;
+  padding: 1.3vw 2vw;
+  font-size: 1.7vw;
+  text-align: center;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-family: 'Rubik', sans-serif;
+  line-height: 20px;
+  color: white; }
+
+.button-dark {
+  background: #492F92; }
+
+.footer {
+  display: block;
+  width: 100%;
+  height: 17%; }
+  .footer .footerControls {
+    width: 50%;
+    height: 100%; }
+    .footer .footerControls .footerControlsButton {
+      text-transform: uppercase;
+      width: 50%;
+      font-size: 1.3vw;
+      text-align: center;
+      cursor: pointer; }
+    .footer .footerControls .footerControlsButton:hover {
+      color: #FF6F05; }
+  .footer .footerLogoContainer {
+    width: 50%;
+    height: 100%;
+    background-color: #492F92; }
+    .footer .footerLogoContainer #logoImage {
+      width: 32%;
+      height: auto;
+      display: block;
+      margin-left: auto;
+      padding-right: 20px; }
 
 /*# sourceMappingURL=style.css.map */

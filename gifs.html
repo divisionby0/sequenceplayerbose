@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index gifs</title>
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,700&amp;subset=cyrillic" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script type="application/javascript" src="js/libs/jQuery/jquery-3.1.1.min.js"></script>
+
+    <script type='application/javascript' src='js/libs/collections/List.js'></script>
+    <script type='application/javascript' src='js/libs/collections/iterators/ListIterator.js'></script>
+
+    <script type="application/javascript" src="js/div0/utils/ImagesPreloader.js"></script>
+    <script type="application/javascript" src="js/Scenes.js"></script>
+    <script type="application/javascript" src="js/div0/ScenesParser.js"></script>
+    <script type="application/javascript" src="js/div0/Scene.js"></script>
+    <script type="application/javascript" src="js/div0/AppGifs.js"></script>
+
+    <script !src="">
+        document.addEventListener("DOMContentLoaded", ready);
+        function ready(){
+            new AppGifs();
+        }
+    </script>
+</head>
+
+<body>
+    <div id="preloadProgress">0%</div>
+
+    <div class="wrapper">
+        <div class="container">
+            <div class="content">
+                <div class="infoContentContainer">
+
+                    <div class="socials">
+
+                    </div>
+
+                    <div class="smallNavigation">
+
+                    </div>
+
+                    <div class="sceneTextContainer noselect">
+                    </div>
+
+                    <div class="bigNavigation">
+                        <div class="button button-dark navigationButton noselect" id="prevButton">Назад</div>
+                        <div class="button button-dark navigationButton noselect" id="nextButton">Вперед</div>
+                    </div>
+                </div>
+
+                <div class="gifAnimationContainer">
+                    <img id="gifAnimation"/>
+                </div>
+
+                <div id="animationControl" class="replay"></div>
+            </div>
+
+            <div class="footer">
+                <div class="footerControls">
+                    <div class="footerControlsButton noselect">Начать заново</div>
+                    <div class="footerControlsButton noselect">О BOSE</div>
+                </div>
+                <div class="footerLogoContainer">
+                    <img id="logoImage" src="assets/logo.png">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

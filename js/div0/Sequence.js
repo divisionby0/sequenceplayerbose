@@ -1,9 +1,11 @@
 var Sequence = (function () {
-    function Sequence(id, totalFrames, interval, sequenceHeight) {
+    function Sequence(id, totalFrames, interval, sequenceHeight, pointCompensation) {
+        this.pointCompensation = 0;
         this.id = id;
         this.interval = interval;
         this.totalFrames = totalFrames;
         this.sequenceHeight = sequenceHeight;
+        this.pointCompensation = pointCompensation;
     }
     Sequence.prototype.getId = function () {
         return this.id;
@@ -16,6 +18,9 @@ var Sequence = (function () {
     };
     Sequence.prototype.getSequenceHeight = function () {
         return this.sequenceHeight;
+    };
+    Sequence.prototype.getPointCompensation = function () {
+        return this.pointCompensation;
     };
     return Sequence;
 }());

@@ -3,12 +3,14 @@ class Sequence {
     private totalFrames:number;
     private interval:number;
     private sequenceHeight:number;
+    private pointCompensation:number = 0;
     
-    constructor(id:string, totalFrames:number, interval:number, sequenceHeight:number) {
+    constructor(id:string, totalFrames:number, interval:number, sequenceHeight:number, pointCompensation:number) {
         this.id = id;
         this.interval = interval;
         this.totalFrames = totalFrames;
         this.sequenceHeight = sequenceHeight;
+        this.pointCompensation = pointCompensation;
     }
 
     public getId():string{
@@ -24,5 +26,8 @@ class Sequence {
     
     public getSequenceHeight():number{
         return this.sequenceHeight;
+    }
+    public getPointCompensation():number{
+        return this.pointCompensation;
     }
 }
