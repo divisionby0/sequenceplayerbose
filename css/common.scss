@@ -1,0 +1,72 @@
+$break-small: 480px;
+$break-med: 768px;
+$break-big: 1026px;
+
+body,html{
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  background-color: aliceblue;
+  overflow: hidden;
+  font-family: 'PT Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+.button-dark{
+  background: #492F92!important;
+}
+.handCursor{
+  cursor: pointer;
+}
+
+.floatLeft{
+  float: left;
+  display: block;
+}
+
+.flexbox{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flexboxVertical{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.button {
+  @extend  .handCursor;
+  background: #F47A20;
+  display: block;
+  text-decoration: none;
+  border-radius: 0.9em;
+  padding: 0.6em 0.9em;
+  font-size: 1.7em;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: 'Rubik', sans-serif;
+  color: white;
+
+  @media screen and (max-width: $break-small) {
+    font-size: 1em;
+    padding: 0.1em 0.5em;
+    border-radius: 1em;
+  }
+
+  @media screen and (max-width: $break-med) {
+    font-size: 1.2em;
+    padding: 0.7em 1.4em;
+    border-radius: 1em;
+  }
+}

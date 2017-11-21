@@ -1,0 +1,87 @@
+.footer{
+  @extend  .floatLeft;
+  display: block;
+  width: 100%;
+  height: 17%;
+  position: relative;
+
+  .bigNavigation{
+    @extend  .floatLeft;
+    @extend .flexbox;
+    width: 50%;
+    height: 100%;
+    background-color: #492F92;
+
+    .arrows{
+      @extend .flexbox;
+      height: 100%;
+    }
+
+    .arrowContainer{
+      @extend  .handCursor;
+    }
+
+    .pagination{
+      @extend .floatLeft;
+      @extend .flexboxVertical;
+      height: 100%;
+      font-size: 1.2em;
+      color: white;
+      text-align: center;
+      padding: 0 12px;
+    }
+  }
+
+  .footerSocialsContainer{
+    @extend .floatLeft;
+    @extend .flexboxVertical;
+    width: 20%;
+    height: 100%;
+    background-color: #492F92;
+
+    .socials{
+      width: 100%;
+      color: white;
+
+      .twitter{
+        @extend  .socialButton;
+        background: url("../assets/twitter_normal.png") no-repeat;
+      }
+      .twitter:hover{
+        background: url("../assets/twitter_hovered.png") no-repeat;
+      }
+
+      .facebook{
+        @extend  .socialButton;
+        background: url("../assets/fb_normal.png") no-repeat;
+      }
+      .facebook:hover{
+        background: url("../assets/fb_hovered.png") no-repeat;
+      }
+
+      .vk{
+        @extend  .socialButton;
+        background: url("../assets/vk_normal.png") no-repeat;
+      }
+      .vk:hover{
+        background: url("../assets/vk_hovered.png") no-repeat;
+      }
+    }
+  }
+
+  .footerLogoContainer{
+    @extend .floatLeft;
+    @extend .flexboxVertical;
+    width: 30%;
+    height: 100%;
+    background-color: #492F92;
+
+    #logoImage{
+      width:72%;
+      height: auto;
+      display: block;
+      margin-left: auto;
+      padding-right: 20px;
+    }
+  }
+}

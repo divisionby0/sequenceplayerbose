@@ -1,0 +1,157 @@
+@import "common";
+@import "footer";
+
+.socialButton{
+  @extend .handCursor;
+  width: 21px;
+  height: 18px;
+  display: block;
+  float: left;
+  padding: 0 10px;
+}
+
+.wrapper{
+  @extend .flexbox;
+  width: 100%;
+  height: 100%;
+}
+
+.container{
+  width: 70%;
+  height: 90%;
+  margin: 0 auto;
+
+  @media screen and (max-width: $break-big){
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.content{
+  @extend .floatLeft;
+  width: 100%;
+  height: 83%;
+  background-color: white;
+  overflow: hidden;
+}
+
+#animation{
+  @extend  .floatLeft;
+  width: 45%;
+  background-size: cover;
+}
+
+.noAnimationContainer{
+  width: 100%;
+  height: 100%;
+  display: none;
+
+  .noAnimationContent{
+    @extend  .flexboxVertical;
+    width: 100%;
+    height: 100%;
+
+    #noAnimationContentText{
+      color: white!important;
+      width: 100%;
+      text-align: center;
+    }
+  }
+}
+
+.sceneTextWrapper{
+  width: 100%;
+  height: 65%;
+}
+
+.gifAnimationContainer{
+  @extend .flexbox;
+  position:relative;
+  float: left;
+  width: 50%;
+  height:100%;
+  @media screen and (max-width: $break-med) and (orientation: portrait){
+    width: 100%;
+    height: 50%;
+  }
+  @media screen and (max-width: $break-small) and (orientation: portrait){
+    width: 100%;
+    height: 65%;
+  }
+}
+
+.sceneTextContainer{
+  width: 80%;
+  font-weight: 700;
+  font-size: 2em;
+  text-align: center;
+
+  @media screen and (max-width: $break-med){
+    font-size: 1.6em;
+  }
+
+  @media screen and (max-width: $break-small) and (orientation: portrait){
+    font-size: 1.1em;
+    width: 100%;
+    padding-top: 16px;
+  }
+  @media screen and (max-width: $break-small) and (orientation: landscape){
+    font-size: 1.2em;
+    padding-top: 16px;
+  }
+}
+
+.infoContentContainer{
+  @extend .floatLeft;
+  width: 50%;
+  height: 100%;
+
+  @media screen and (max-width: $break-med) and (orientation: portrait){
+    width: 100%;
+    height: 50%;
+  }
+  @media screen and (max-width: $break-small) and (orientation: portrait){
+    width: 100%;
+    height: 25%;
+  }
+
+  .whyButtonContainer{
+    @extend .flexbox;
+    width: 100%;
+    padding-top: 20px;
+
+    @media screen and (max-width: $break-small){
+      padding-top: 8px;
+    }
+  }
+}
+
+#gifAnimation{
+  width: 100%;
+  height: auto;
+}
+
+.replay{
+  @extend  .handCursor;
+  position: absolute;
+  top:0;
+  right: 0;
+  width: 47px;
+  height: 47px;
+  display: block;
+  float: right;
+  background: url("../assets/replay.png");
+  opacity: 0.7;
+}
+
+.replay:hover{
+  opacity: 1;
+  background: url("../assets/replay-hover.png");
+  width: 129px;
+  height: 47px;
+}
+
+
+.navigationButton{
+  @extend  .floatLeft;
+}

@@ -1,0 +1,231 @@
+body, html {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  background-color: aliceblue;
+  overflow: hidden;
+  font-family: 'PT Sans', sans-serif;
+  -webkit-font-smoothing: antialiased; }
+
+.noselect {
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently
+               supported by Chrome and Opera */ }
+
+.button-dark {
+  background: #492F92 !important; }
+
+.handCursor, .button, .footer .bigNavigation .arrowContainer, .socialButton, .footer .footerSocialsContainer .socials .twitter, .footer .footerSocialsContainer .socials .facebook, .footer .footerSocialsContainer .socials .vk, .replay {
+  cursor: pointer; }
+
+.floatLeft, .footer, .footer .bigNavigation, .footer .bigNavigation .pagination, .footer .footerSocialsContainer, .footer .footerLogoContainer, .content, #animation, .infoContentContainer, .navigationButton {
+  float: left;
+  display: block; }
+
+.flexbox, .footer .bigNavigation, .footer .bigNavigation .arrows, .wrapper, .gifAnimationContainer, .infoContentContainer .whyButtonContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.flexboxVertical, .footer .bigNavigation .pagination, .footer .footerSocialsContainer, .footer .footerLogoContainer, .noAnimationContainer .noAnimationContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; }
+
+.button {
+  background: #F47A20;
+  display: block;
+  text-decoration: none;
+  border-radius: 0.9em;
+  padding: 0.6em 0.9em;
+  font-size: 1.7em;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: 'Rubik', sans-serif;
+  color: white; }
+  @media screen and (max-width: 480px) {
+    .button {
+      font-size: 1em;
+      padding: 0.1em 0.5em;
+      border-radius: 1em; } }
+  @media screen and (max-width: 768px) {
+    .button {
+      font-size: 1.2em;
+      padding: 0.7em 1.4em;
+      border-radius: 1em; } }
+
+.footer {
+  display: block;
+  width: 100%;
+  height: 17%;
+  position: relative; }
+  .footer .bigNavigation {
+    width: 50%;
+    height: 100%;
+    background-color: #492F92; }
+    .footer .bigNavigation .arrows {
+      height: 100%; }
+    .footer .bigNavigation .pagination {
+      height: 100%;
+      font-size: 1.2em;
+      color: white;
+      text-align: center;
+      padding: 0 12px; }
+  .footer .footerSocialsContainer {
+    width: 20%;
+    height: 100%;
+    background-color: #492F92; }
+    .footer .footerSocialsContainer .socials {
+      width: 100%;
+      color: white; }
+      .footer .footerSocialsContainer .socials .twitter {
+        background: url("../assets/twitter_normal.png") no-repeat; }
+      .footer .footerSocialsContainer .socials .twitter:hover {
+        background: url("../assets/twitter_hovered.png") no-repeat; }
+      .footer .footerSocialsContainer .socials .facebook {
+        background: url("../assets/fb_normal.png") no-repeat; }
+      .footer .footerSocialsContainer .socials .facebook:hover {
+        background: url("../assets/fb_hovered.png") no-repeat; }
+      .footer .footerSocialsContainer .socials .vk {
+        background: url("../assets/vk_normal.png") no-repeat; }
+      .footer .footerSocialsContainer .socials .vk:hover {
+        background: url("../assets/vk_hovered.png") no-repeat; }
+  .footer .footerLogoContainer {
+    width: 30%;
+    height: 100%;
+    background-color: #492F92; }
+    .footer .footerLogoContainer #logoImage {
+      width: 72%;
+      height: auto;
+      display: block;
+      margin-left: auto;
+      padding-right: 20px; }
+
+.socialButton, .footer .footerSocialsContainer .socials .twitter, .footer .footerSocialsContainer .socials .facebook, .footer .footerSocialsContainer .socials .vk {
+  width: 21px;
+  height: 18px;
+  display: block;
+  float: left;
+  padding: 0 10px; }
+
+.wrapper {
+  width: 100%;
+  height: 100%; }
+
+.container {
+  width: 70%;
+  height: 90%;
+  margin: 0 auto; }
+  @media screen and (max-width: 1026px) {
+    .container {
+      width: 100%;
+      height: 100%; } }
+
+.content {
+  width: 100%;
+  height: 83%;
+  background-color: white;
+  overflow: hidden; }
+
+#animation {
+  width: 45%;
+  background-size: cover; }
+
+.noAnimationContainer {
+  width: 100%;
+  height: 100%;
+  display: none; }
+  .noAnimationContainer .noAnimationContent {
+    width: 100%;
+    height: 100%; }
+    .noAnimationContainer .noAnimationContent #noAnimationContentText {
+      color: white !important;
+      width: 100%;
+      text-align: center; }
+
+.sceneTextWrapper {
+  width: 100%;
+  height: 65%; }
+
+.gifAnimationContainer {
+  position: relative;
+  float: left;
+  width: 50%;
+  height: 100%; }
+  @media screen and (max-width: 768px) and (orientation: portrait) {
+    .gifAnimationContainer {
+      width: 100%;
+      height: 50%; } }
+  @media screen and (max-width: 480px) and (orientation: portrait) {
+    .gifAnimationContainer {
+      width: 100%;
+      height: 65%; } }
+
+.sceneTextContainer {
+  width: 80%;
+  font-weight: 700;
+  font-size: 2em;
+  text-align: center; }
+  @media screen and (max-width: 768px) {
+    .sceneTextContainer {
+      font-size: 1.6em; } }
+  @media screen and (max-width: 480px) and (orientation: portrait) {
+    .sceneTextContainer {
+      font-size: 1.1em;
+      width: 100%;
+      padding-top: 16px; } }
+  @media screen and (max-width: 480px) and (orientation: landscape) {
+    .sceneTextContainer {
+      font-size: 1.2em;
+      padding-top: 16px; } }
+
+.infoContentContainer {
+  width: 50%;
+  height: 100%; }
+  @media screen and (max-width: 768px) and (orientation: portrait) {
+    .infoContentContainer {
+      width: 100%;
+      height: 50%; } }
+  @media screen and (max-width: 480px) and (orientation: portrait) {
+    .infoContentContainer {
+      width: 100%;
+      height: 25%; } }
+  .infoContentContainer .whyButtonContainer {
+    width: 100%;
+    padding-top: 20px; }
+    @media screen and (max-width: 480px) {
+      .infoContentContainer .whyButtonContainer {
+        padding-top: 8px; } }
+
+#gifAnimation {
+  width: 100%;
+  height: auto; }
+
+.replay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 47px;
+  height: 47px;
+  display: block;
+  float: right;
+  background: url("../assets/replay.png");
+  opacity: 0.7; }
+
+.replay:hover {
+  opacity: 1;
+  background: url("../assets/replay-hover.png");
+  width: 129px;
+  height: 47px; }
+
+/*# sourceMappingURL=style.css.map */

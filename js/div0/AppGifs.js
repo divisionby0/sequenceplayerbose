@@ -6,7 +6,7 @@
 var AppGifs = (function () {
     function AppGifs() {
         var _this = this;
-        this.ver = "0.0.1";
+        this.ver = "0.0.2";
         this.currentSequenceIndex = 0;
         this.view = new SceneInfoView();
         $("#verContainer").text(this.ver);
