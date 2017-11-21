@@ -1,0 +1,54 @@
+body,html{
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  background-color: aliceblue;
+  overflow: hidden;
+  font-family: 'PT Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+
+.flexbox{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flexboxVertical{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.wrapper{
+  @extend  .flexbox;
+  width: 100%;
+  height: 100%;
+}
+
+.container{
+  width: 70%;
+  height: 90%;
+  margin: 0 auto;
+  background: url("assets/bg_about.jpg") no-repeat fixed;
+  background-size: cover;
+}
+
+.content{
+  width: 100%;
+  height: 83%;
+  background-color: greenyellow;
+}
+.gifAnimationContainer{
+  background-color: red;
+}

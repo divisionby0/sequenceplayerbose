@@ -6,6 +6,7 @@ class Scene {
     private animationUrl:string;
     private infoText:string;
     private whyText:string;
+    private controls:any[] = [];
     
     constructor(index:number, counter:number, useAnimation:boolean, animationUrl:string, infoText:string, whyText:string) {
         this.index = index;
@@ -14,6 +15,13 @@ class Scene {
         this.animationUrl = animationUrl;
         this.infoText = infoText;
         this.whyText = whyText;
+    }
+    
+    public addControl(control:any):void{
+        this.controls.push(control);
+    }
+    public getControls():any[]{
+        return this.controls;
     }
     
     public isUseAnimation():boolean{
@@ -31,5 +39,9 @@ class Scene {
     }
     public getCounter():number{
         return this.counter;
+    }
+    
+    public hasAdditionalControls():boolean{
+        return this.controls.length>0;
     }
 }

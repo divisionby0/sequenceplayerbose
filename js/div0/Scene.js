@@ -1,6 +1,7 @@
 var Scene = (function () {
     function Scene(index, counter, useAnimation, animationUrl, infoText, whyText) {
         this.useAnimation = true;
+        this.controls = [];
         this.index = index;
         this.counter = counter;
         this.useAnimation = useAnimation;
@@ -8,6 +9,12 @@ var Scene = (function () {
         this.infoText = infoText;
         this.whyText = whyText;
     }
+    Scene.prototype.addControl = function (control) {
+        this.controls.push(control);
+    };
+    Scene.prototype.getControls = function () {
+        return this.controls;
+    };
     Scene.prototype.isUseAnimation = function () {
         return this.useAnimation;
     };
@@ -22,6 +29,9 @@ var Scene = (function () {
     };
     Scene.prototype.getCounter = function () {
         return this.counter;
+    };
+    Scene.prototype.hasAdditionalControls = function () {
+        return this.controls.length > 0;
     };
     return Scene;
 }());

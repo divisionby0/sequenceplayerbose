@@ -14,7 +14,18 @@ class ScenesParser {
             var infoText:string = data[i].infoText;
             var whyText:string = data[i].whyText;
 
+            var controls:any[] = data[i].controls;
+            
             var scene:Scene = new Scene(index, counter, useAnimation, animationUrl, infoText, whyText);
+            
+            console.log("Scene ",index,"  controls ",controls);
+
+            if(controls){
+                for(var j:number = 0; j < controls.length; j++){
+                    scene.addControl(controls[j]);
+                }
+            }
+
             scenes.add(scene);
         }
         

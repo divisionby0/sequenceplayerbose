@@ -33,8 +33,11 @@ var Scenes = [
     },
     {
         index:4,
-        counter:0,
+        counter:5,
         useAnimation:false,
-        infoText:"Почему Bose — оптимальная альтернатива?"
+        infoText:"Почему Bose — оптимальная альтернатива ?",
+        controls:[
+            {text:"Узнать"}
+        ]
     }
 ];
