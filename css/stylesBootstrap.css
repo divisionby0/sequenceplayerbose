@@ -2,7 +2,6 @@ body, html {
   width: 100%;
   height: 100%;
   margin: 0;
-  background-color: aliceblue;
   overflow: hidden;
   font-family: 'PT Sans', sans-serif;
   -webkit-font-smoothing: antialiased; }
@@ -22,17 +21,21 @@ body, html {
   /* Non-prefixed version, currently
                supported by Chrome and Opera */ }
 
+.nopadding {
+  padding-right: 0 !important;
+  padding-left: 0 !important; }
+
 .button-dark {
   background: #492F92 !important; }
 
-.handCursor, .button, .navigationButtonBootstrap, .navigationBtnRewind, .navigationBtnBack, .navigationBtnForw, .socialButton {
+.handCursor, .button, .navigationButtonBootstrap, .navigationBtnRewind, .navigationBtnBack, .navigationBtnForw, .socialButton, .gifAnimationOverlay .gifAnimationOverlayCloseButton, .gifReplayButton {
   cursor: pointer; }
 
 .floatLeft {
   float: left;
   display: block; }
 
-.flexbox, .wrapper, .navigationPagination, .contentBlock {
+.flexbox, .navigationPagination, .contentBlock, .contentBlockGifContainer, .gifAnimationOverlay, #contentNoAnimation {
   display: flex;
   justify-content: center;
   align-items: center; }
@@ -43,7 +46,6 @@ body, html {
   justify-content: center; }
 
 .navigationButton {
-  height: 70%;
   width: auto; }
 
 .button {
@@ -68,22 +70,15 @@ body, html {
       padding: 0.7em 1.4em;
       border-radius: 1em; } }
 
-body, html {
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  background-color: aliceblue;
-  overflow: hidden;
-  font-family: 'PT Sans', sans-serif;
-  -webkit-font-smoothing: antialiased; }
-
 .img-fluid {
   display: block !important;
   margin: auto !important; }
 
-.wrapper {
-  width: 100%;
-  height: 100%; }
+#header {
+  height: 14%;
+  max-height: 220px;
+  background-color: #492F92;
+  color: white; }
 
 .navigationButtonBootstrap:hover, .navigationBtnRewind:hover, .navigationBtnBack:hover, .navigationBtnForw:hover {
   -webkit-filter: grayscale;
@@ -101,6 +96,12 @@ body, html {
 .navigationBtnForw {
   background: url("../assets/navigationArrowForw.png") no-repeat;
   background-size: auto 100%; }
+
+.navigationPagination {
+  font-size: 1.3em; }
+  @media only screen and (orientation: landscape) and (min-width: 768px) {
+    .navigationPagination {
+      font-size: 1.1em; } }
 
 .socialButton {
   width: 33%;
@@ -121,6 +122,9 @@ body, html {
   -webkit-filter: grayscale;
   /*sepia, hue-rotate, invert....*/
   -webkit-filter: brightness(50%); }
+
+.gifAnimationImage {
+  position: relative; }
 
 @media only screen and (orientation: portrait) {
   .img-fluid {
@@ -147,11 +151,56 @@ body, html {
   .col-xsl-6 {
     width: 100%; } }
 @media screen and (orientation: landscape) {
-  .contentBlock {
+  .contentBlock, .contentBlockGifContainer {
     height: 100% !important; } }
 @media screen and (orientation: portrait) {
-  .contentBlock {
+  .contentBlock, .contentBlockGifContainer {
     height: 50% !important; } }
+
+.contentBlockGifContainer {
+  position: relative; }
+
+.gifAnimationOverlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: rgba(83, 0, 146, 0.85);
+  color: white; }
+  .gifAnimationOverlay .gifAnimationOverlayCloseButton {
+    position: absolute;
+    top: 3%;
+    right: 5%;
+    background: url("../assets/cross.png");
+    width: 15px;
+    height: 15px;
+    -moz-transition: all 0.5s ease;
+    /* WebKit */
+    -webkit-transition: all 0.5s ease;
+    /* Opera */
+    -o-transition: all 0.5s ease;
+    /* Standard */
+    transition: all 0.5s ease; }
+  .gifAnimationOverlay .gifAnimationOverlayCloseButton:hover {
+    -moz-transform: rotate(180deg);
+    /* WebKit */
+    -webkit-transform: rotate(180deg);
+    /* Opera */
+    -o-transform: rotate(180deg);
+    /* Standard */
+    transform: rotate(180deg); }
+
+.gifReplayButton {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  background: url("../assets/replay.png");
+  width: 47px;
+  height: 47px; }
+
+.gifReplayButton:hover {
+  background: url("../assets/replay-hover.png");
+  width: 129px;
+  height: 47px; }
 
 .gifAnimation {
   width: 100%;
@@ -159,5 +208,17 @@ body, html {
 
 .infoTextWithAnimation {
   font-size: 2em; }
+
+#contentHasAnimation {
+  height: 86%; }
+
+#contentNoAnimation {
+  height: 86%;
+  display: none;
+  color: white;
+  background: url("../assets/bg_about.jpg") no-repeat;
+  background-size: cover; }
+  #contentNoAnimation #noAnimationContentText {
+    padding: 20px; }
 
 /*# sourceMappingURL=stylesBootstrap.css.map */

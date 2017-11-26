@@ -11,14 +11,14 @@
 <body>
 <div id="preloadProgress" style="position: absolute;">0%</div>
 
-<div class="container" style="height: 14%; max-height: 220px; background-color: #492F92; color: white;">
+<div id="header" class="container">
     <div class="row" style="height: 100%;">
-        <div class="col-6 flexbox">
+        <div class="col-6 flexbox nopadding">
             <div class="row">
                 <div class="col-3 navigationBtnRewind handCursor"></div>
                 <div class="col-2 navigationBtnBack handCursor"></div>
                 <div class="col-3 navigationPagination handCursor">1/10</div>
-                <div style="width: 10%; height: 100%;"></div>
+                <div style="width: 7%; height: 100%;"></div>
                 <div class="col-2 navigationBtnForw handCursor"></div>
             </div>
         </div>
@@ -33,23 +33,45 @@
         </div>
     </div>
 </div>
-
-<div class="container" style="height: 86%;">
+<div id="contentHasAnimation" class="container">
     <div class="row" style="height: 100%;">
 
-        <div class="col-xsl-6 contentBlock">
-            <img src="img/gifs/1.gif" class="img-fluid">
+        <div class="col-xsl-6 contentBlockGifContainer">
+            <img src="img/gifs/1.gif" class="img-fluid gifAnimationImage">
+            <div class="gifReplayButton"></div>
+
+            <div class="gifAnimationOverlay noselect">
+                <div class="gifAnimationOverlayCloseButton"></div>
+                <div id="whyInfoText" class="col-12 text-center">Контент оверлея над анимацией</div>
+            </div>
         </div>
 
-        <div class="col-xsl-6 contentBlock" style="background-color: #0e90d2;">
+        <div class="col-xsl-6 contentBlock">
             <div class="container">
                 <div class="row">
                     <div class="col-12 text-center infoTextWithAnimation">text</div>
                 </div>
                 <div class="row">
-                    <div class="col-12 text-center">button</div>
+                    <div class="col-12 text-center">
+                        <div class="row">
+                            <div class="col-2"></div>
+                            <div class="col-8">
+                                <div class="button navigationButton noselect" id="whyButton">Кнопка</div>
+                            </div>
+                            <div class="col-2"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
+        </div>
+    </div>
+</div>
+
+<div id="contentNoAnimation" class="container">
+    <div class="row">
+        <div id="noAnimationContentText" class="col-12 text-center"></div>
+        <div class="col-12">
+            <div id="noAnimationContentButton" class="button navigationButton noselect">Кнопка</div>
         </div>
     </div>
 </div>

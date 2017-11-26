@@ -1,24 +1,15 @@
 @import "common";
 
-body,html{
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  background-color: aliceblue;
-  overflow: hidden;
-  font-family: 'PT Sans', sans-serif;
-  -webkit-font-smoothing: antialiased;
-}
-
 .img-fluid{
   display: block!important;
   margin: auto!important;
 }
 
-.wrapper{
-  @extend  .flexbox;
-  width: 100%;
-  height: 100%;
+#header{
+  height: 14%;
+  max-height: 220px;
+  background-color: #492F92;
+  color: white;
 }
 
 .navigationButtonBootstrap{
@@ -47,6 +38,10 @@ body,html{
 }
 .navigationPagination{
   @extend .flexbox;
+  font-size: 1.3em;
+  @media only screen and (orientation:landscape) and (min-width: $break-med){
+    font-size: 1.1em;
+  }
 }
 
 .socialButton{
@@ -70,6 +65,10 @@ body,html{
 .socialButton:hover{
   -webkit-filter: grayscale; /*sepia, hue-rotate, invert....*/
   -webkit-filter: brightness(50%);
+}
+
+.gifAnimationImage{
+  position: relative;
 }
 
 @media only screen and (orientation:portrait){
@@ -122,10 +121,84 @@ body,html{
   }
 }
 
+.contentBlockGifContainer{
+  @extend .contentBlock;
+  position: relative;
+}
+.gifAnimationOverlay{
+  @extend .flexbox;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: rgba(83,0,146,0.85);
+  color: white;
+
+  .gifAnimationOverlayCloseButton{
+    @extend .handCursor;
+    position: absolute;
+    top:3%;
+    right:5%;
+    background: url("../assets/cross.png");
+    width: 15px;
+    height: 15px;
+    -moz-transition: all 0.5s ease;
+    /* WebKit */
+    -webkit-transition: all 0.5s ease;
+    /* Opera */
+    -o-transition: all 0.5s ease;
+    /* Standard */
+    transition: all 0.5s ease;
+  }
+
+  .gifAnimationOverlayCloseButton:hover{
+    -moz-transform: rotate(180deg) ;
+    /* WebKit */
+    -webkit-transform:  rotate(180deg);
+    /* Opera */
+    -o-transform: rotate(180deg) ;
+    /* Standard */
+    transform: rotate(180deg) ;
+  }
+}
+
+
+.gifReplayButton{
+  @extend .handCursor;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  background: url("../assets/replay.png");
+  width: 47px;
+  height: 47px;
+}
+
+.gifReplayButton:hover{
+  background: url("../assets/replay-hover.png");
+  width: 129px;
+  height: 47px;
+}
+
 .gifAnimation{
   width: 100%;
   height: auto;
 }
 .infoTextWithAnimation{
   font-size: 2em;
+}
+
+#contentHasAnimation{
+  height: 86%;
+}
+
+#contentNoAnimation{
+  @extend .flexbox;
+  height: 86%;
+  display: none;
+  color: white;
+  background: url("../assets/bg_about.jpg") no-repeat;
+  background-size: cover;
+
+  #noAnimationContentText{
+    padding: 20px;
+  }
 }
