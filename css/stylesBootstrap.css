@@ -35,7 +35,7 @@ body, html {
   float: left;
   display: block; }
 
-.flexbox, .navigationPagination, .contentBlock, .contentBlockGifContainer, .gifAnimationOverlay, #contentNoAnimation {
+.flexbox, .navigationPagination, .contentBlock, .contentBlockGifContainer, .gifAnimationOverlay, #contentNoAnimation, #contentIntro #introContentContainer {
   display: flex;
   justify-content: center;
   align-items: center; }
@@ -220,5 +220,32 @@ body, html {
   background-size: cover; }
   #contentNoAnimation #noAnimationContentText {
     padding: 20px; }
+
+#contentIntro {
+  height: 86%;
+  color: white;
+  background-color: #492F92; }
+  #contentIntro .introImage {
+    float: right;
+    display: block;
+    position: absolute;
+    right: 0;
+    bottom: 0; }
+  @media screen and (orientation: landscape) {
+    #contentIntro #introImageContainer {
+      width: 50%; }
+    #contentIntro #introContentContainer {
+      width: 50%; }
+    #contentIntro img {
+      height: auto;
+      width: 100%; } }
+  @media screen and (orientation: portrait) {
+    #contentIntro #introImageContainer {
+      height: 50%; }
+    #contentIntro #introContentContainer {
+      height: 50%; }
+    #contentIntro img {
+      width: auto;
+      height: 100%; } }
 
 /*# sourceMappingURL=stylesBootstrap.css.map */

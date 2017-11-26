@@ -3,7 +3,6 @@ var Scenes = [
         index:0,
         counter:1,
         useAnimation:false,
-        animationUrl:"img/gifs/1.gif",
         infoText:"Ищешь качественный домашний кинотеатр? Тебе сюда.",
         controls:[
             {text:"Начать"}

@@ -202,3 +202,51 @@
     padding: 20px;
   }
 }
+
+#contentIntro{
+  height: 86%;
+  color: white;
+  background-color: #492F92;
+
+  .introImage{
+    float: right;
+    display: block;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
+
+  #introContentContainer{
+    @extend .flexbox;
+  }
+  #introImageContainer{
+
+  }
+
+  @media screen and (orientation: landscape){
+    #introImageContainer{
+      width: 50%;
+    }
+    #introContentContainer{
+      width: 50%;
+    }
+
+    img{
+      height: auto;
+      width: 100%;
+    }
+
+  }
+  @media screen and (orientation: portrait){
+    #introImageContainer{
+      height: 50%;
+    }
+    #introContentContainer{
+      height: 50%;
+    }
+    img{
+      width: auto;
+      height: 100%;
+    }
+  }
+}
