@@ -17,8 +17,20 @@
       height: 100%;
     }
 
+    #rewindScenesButton{
+      @extend .navigationButton;
+      height: 48%!important;
+    }
+    #prevButton{
+      @extend .navigationButton;
+    }
+    #nextButton{
+      @extend .navigationButton;
+    }
+
     .arrowContainer{
       @extend  .handCursor;
+      height: 60%;
     }
 
     .pagination{

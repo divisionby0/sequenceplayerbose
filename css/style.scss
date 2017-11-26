@@ -33,6 +33,8 @@
   height: 83%;
   background-color: white;
   overflow: hidden;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 #animation{
@@ -45,16 +47,53 @@
   width: 100%;
   height: 100%;
   display: none;
+  color: white!important;
+
+  .introImages{
+    width: 60%;
+    height: 100%;
+    display: block;
+    float: right;
+
+    #introImage1{
+      width: auto;
+      height: 100%;
+      float: right;
+    }
+
+    @media screen and (max-width: $break-med) and (orientation: portrait){
+      width: 100%;
+      height: 50%;
+    }
+  }
+
+  #noAnimationContentButtonContainer{
+    width: 100%;
+  }
+
+  #noAnimationContentText{
+    width: 90%;
+    text-align: center;
+    padding: 1vw;
+  }
 
   .noAnimationContent{
-    @extend  .flexboxVertical;
+    @extend  .flexbox;
     width: 100%;
     height: 100%;
+    z-index: 10;
+  }
 
-    #noAnimationContentText{
-      color: white!important;
+  .noAnimationContentCustomImageBackground{
+    @extend  .flexboxVertical;
+    position: relative;
+    width: 40%;
+    height: 100%;
+    z-index: 10;
+
+    @media screen and (max-width: $break-med) and (orientation: portrait){
       width: 100%;
-      text-align: center;
+      height: 50%;
     }
   }
 }
@@ -77,6 +116,47 @@
   @media screen and (max-width: $break-small) and (orientation: portrait){
     width: 100%;
     height: 65%;
+  }
+
+  #whyInfoContainer{
+    @extend .flexbox;
+    width: 100%;
+    height: 100%;
+    color: white;
+    position: absolute;
+    background: rgba(83,0,146,0.85);
+
+    .whyInfoContainerClose{
+      background: url("../assets/cross.png");
+      width: 15px;
+      height: 15px;
+      position: absolute;
+      right:10px;
+      top:10px;
+      /* Firefox */
+      -moz-transition: all 0.5s ease;
+      /* WebKit */
+      -webkit-transition: all 0.5s ease;
+      /* Opera */
+      -o-transition: all 0.5s ease;
+      /* Standard */
+      transition: all 0.5s ease;
+    }
+
+    .whyInfoContainerClose:hover {
+      -moz-transform: rotate(180deg) ;
+      /* WebKit */
+      -webkit-transform:  rotate(180deg);
+      /* Opera */
+      -o-transform: rotate(180deg) ;
+      /* Standard */
+      transform: rotate(180deg) ;
+    }
+
+    #whyInfoText{
+      width: 90%;
+      text-align: center;
+    }
   }
 }
 

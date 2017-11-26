@@ -15,10 +15,10 @@ class ScenesParser {
             var whyText:string = data[i].whyText;
 
             var controls:any[] = data[i].controls;
+
+            var background:string = data[i].background;
             
-            var scene:Scene = new Scene(index, counter, useAnimation, animationUrl, infoText, whyText);
-            
-            console.log("Scene ",index,"  controls ",controls);
+            var scene:Scene = new Scene(index, counter, useAnimation, animationUrl, infoText, whyText, background);
 
             if(controls){
                 for(var j:number = 0; j < controls.length; j++){

@@ -22,7 +22,17 @@ body, html {
   /* Non-prefixed version, currently
                supported by Chrome and Opera */ }
 
-.flexbox, .wrapper {
+.button-dark {
+  background: #492F92 !important; }
+
+.handCursor, .button, .navigationButtonBootstrap, .navigationBtnRewind, .navigationBtnBack, .navigationBtnForw, .socialButton {
+  cursor: pointer; }
+
+.floatLeft {
+  float: left;
+  display: block; }
+
+.flexbox, .wrapper, .navigationPagination, .contentBlock {
   display: flex;
   justify-content: center;
   align-items: center; }
@@ -32,23 +42,122 @@ body, html {
   flex-direction: column;
   justify-content: center; }
 
+.navigationButton {
+  height: 70%;
+  width: auto; }
+
+.button {
+  background: #F47A20;
+  display: block;
+  text-decoration: none;
+  border-radius: 0.9em;
+  padding: 0.6em 0.9em;
+  font-size: 1.7em;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: 'Rubik', sans-serif;
+  color: white; }
+  @media screen and (max-width: 480px) {
+    .button {
+      font-size: 1em;
+      padding: 0.1em 0.5em;
+      border-radius: 1em; } }
+  @media screen and (max-width: 768px) {
+    .button {
+      font-size: 1.2em;
+      padding: 0.7em 1.4em;
+      border-radius: 1em; } }
+
+body, html {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  background-color: aliceblue;
+  overflow: hidden;
+  font-family: 'PT Sans', sans-serif;
+  -webkit-font-smoothing: antialiased; }
+
+.img-fluid {
+  display: block !important;
+  margin: auto !important; }
+
 .wrapper {
   width: 100%;
   height: 100%; }
 
-.container {
-  width: 70%;
-  height: 90%;
-  margin: 0 auto;
-  background: url("assets/bg_about.jpg") no-repeat fixed;
-  background-size: cover; }
+.navigationButtonBootstrap:hover, .navigationBtnRewind:hover, .navigationBtnBack:hover, .navigationBtnForw:hover {
+  -webkit-filter: grayscale;
+  /*sepia, hue-rotate, invert....*/
+  -webkit-filter: brightness(50%); }
 
-.content {
+.navigationBtnRewind {
+  background: url("../assets/navigationArrowRewind.png") no-repeat;
+  background-size: auto 100%; }
+
+.navigationBtnBack {
+  background: url("../assets/navigationArrowBack.png") no-repeat;
+  background-size: auto 100%; }
+
+.navigationBtnForw {
+  background: url("../assets/navigationArrowForw.png") no-repeat;
+  background-size: auto 100%; }
+
+.socialButton {
+  width: 33%;
+  height: auto;
+  display: block;
+  float: left;
+  padding: 0 3px; }
+  @media only screen and (orientation: landscape) and (min-width: 768px) {
+    .socialButton {
+      width: auto;
+      height: auto; } }
+  @media only screen and (orientation: landscape) and (max-width: 360px) {
+    .socialButton {
+      width: auto;
+      height: auto; } }
+
+.socialButton:hover {
+  -webkit-filter: grayscale;
+  /*sepia, hue-rotate, invert....*/
+  -webkit-filter: brightness(50%); }
+
+@media only screen and (orientation: portrait) {
+  .img-fluid {
+    width: auto;
+    height: 100%; } }
+@media only screen and (orientation: landscape) {
+  .img-fluid {
+    width: 100%;
+    height: auto; } }
+@media only screen and (orientation: landscape) and (min-width: 1024px) {
+  .img-fluid {
+    width: 100%;
+    height: auto; } }
+@media only screen and (max-width: 360px) {
+  .col-xsl-6 {
+    width: 100%; } }
+@media only screen and (min-width: 360px) and (max-width: 480px) {
+  .col-xsl-6 {
+    width: 100%; } }
+@media only screen and (min-width: 480px) {
+  .col-xsl-6 {
+    width: 50%; } }
+@media only screen and (min-width: 480px) and (orientation: portrait) {
+  .col-xsl-6 {
+    width: 100%; } }
+@media screen and (orientation: landscape) {
+  .contentBlock {
+    height: 100% !important; } }
+@media screen and (orientation: portrait) {
+  .contentBlock {
+    height: 50% !important; } }
+
+.gifAnimation {
   width: 100%;
-  height: 83%;
-  background-color: greenyellow; }
+  height: auto; }
 
-.gifAnimationContainer {
-  background-color: red; }
+.infoTextWithAnimation {
+  font-size: 2em; }
 
 /*# sourceMappingURL=stylesBootstrap.css.map */

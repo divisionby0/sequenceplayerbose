@@ -1,5 +1,5 @@
 var Scene = (function () {
-    function Scene(index, counter, useAnimation, animationUrl, infoText, whyText) {
+    function Scene(index, counter, useAnimation, animationUrl, infoText, whyText, background) {
         this.useAnimation = true;
         this.controls = [];
         this.index = index;
@@ -8,6 +8,7 @@ var Scene = (function () {
         this.animationUrl = animationUrl;
         this.infoText = infoText;
         this.whyText = whyText;
+        this.background = background;
     }
     Scene.prototype.addControl = function (control) {
         this.controls.push(control);
@@ -32,6 +33,17 @@ var Scene = (function () {
     };
     Scene.prototype.hasAdditionalControls = function () {
         return this.controls.length > 0;
+    };
+    Scene.prototype.hasCustomBackground = function () {
+        if (typeof this.background === 'undefined') {
+            return false;
+        }
+        else {
+            return true;
+        }
+    };
+    Scene.prototype.getBackground = function () {
+        return this.background;
     };
     return Scene;
 }());

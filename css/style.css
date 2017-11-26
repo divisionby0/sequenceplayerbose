@@ -28,19 +28,23 @@ body, html {
 .handCursor, .button, .footer .bigNavigation .arrowContainer, .socialButton, .footer .footerSocialsContainer .socials .twitter, .footer .footerSocialsContainer .socials .facebook, .footer .footerSocialsContainer .socials .vk, .replay {
   cursor: pointer; }
 
-.floatLeft, .footer, .footer .bigNavigation, .footer .bigNavigation .pagination, .footer .footerSocialsContainer, .footer .footerLogoContainer, .content, #animation, .infoContentContainer, .navigationButton {
+.floatLeft, .footer, .footer .bigNavigation, .footer .bigNavigation .pagination, .footer .footerSocialsContainer, .footer .footerLogoContainer, .content, #animation, .infoContentContainer, .navigationButton, .footer .bigNavigation #rewindScenesButton, .footer .bigNavigation #prevButton, .footer .bigNavigation #nextButton {
   float: left;
   display: block; }
 
-.flexbox, .footer .bigNavigation, .footer .bigNavigation .arrows, .wrapper, .gifAnimationContainer, .infoContentContainer .whyButtonContainer {
+.flexbox, .footer .bigNavigation, .footer .bigNavigation .arrows, .wrapper, .noAnimationContainer .noAnimationContent, .gifAnimationContainer, .gifAnimationContainer #whyInfoContainer, .infoContentContainer .whyButtonContainer {
   display: flex;
   justify-content: center;
   align-items: center; }
 
-.flexboxVertical, .footer .bigNavigation .pagination, .footer .footerSocialsContainer, .footer .footerLogoContainer, .noAnimationContainer .noAnimationContent {
+.flexboxVertical, .footer .bigNavigation .pagination, .footer .footerSocialsContainer, .footer .footerLogoContainer, .noAnimationContainer .noAnimationContentCustomImageBackground {
   display: flex;
   flex-direction: column;
   justify-content: center; }
+
+.navigationButton, .footer .bigNavigation #rewindScenesButton, .footer .bigNavigation #prevButton, .footer .bigNavigation #nextButton {
+  height: 70%;
+  width: auto; }
 
 .button {
   background: #F47A20;
@@ -75,6 +79,10 @@ body, html {
     background-color: #492F92; }
     .footer .bigNavigation .arrows {
       height: 100%; }
+    .footer .bigNavigation #rewindScenesButton {
+      height: 48% !important; }
+    .footer .bigNavigation .arrowContainer {
+      height: 60%; }
     .footer .bigNavigation .pagination {
       height: 100%;
       font-size: 1.2em;
@@ -126,7 +134,7 @@ body, html {
   width: 70%;
   height: 90%;
   margin: 0 auto; }
-  @media screen and (max-width: 1026px) {
+  @media screen and (max-width: 1024px) {
     .container {
       width: 100%;
       height: 100%; } }
@@ -135,7 +143,9 @@ body, html {
   width: 100%;
   height: 83%;
   background-color: white;
-  overflow: hidden; }
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-size: cover; }
 
 #animation {
   width: 45%;
@@ -144,14 +154,40 @@ body, html {
 .noAnimationContainer {
   width: 100%;
   height: 100%;
-  display: none; }
+  display: none;
+  color: white !important; }
+  .noAnimationContainer .introImages {
+    width: 60%;
+    height: 100%;
+    display: block;
+    float: right; }
+    .noAnimationContainer .introImages #introImage1 {
+      width: auto;
+      height: 100%;
+      float: right; }
+    @media screen and (max-width: 768px) and (orientation: portrait) {
+      .noAnimationContainer .introImages {
+        width: 100%;
+        height: 50%; } }
+  .noAnimationContainer #noAnimationContentButtonContainer {
+    width: 100%; }
+  .noAnimationContainer #noAnimationContentText {
+    width: 90%;
+    text-align: center;
+    padding: 1vw; }
   .noAnimationContainer .noAnimationContent {
     width: 100%;
-    height: 100%; }
-    .noAnimationContainer .noAnimationContent #noAnimationContentText {
-      color: white !important;
-      width: 100%;
-      text-align: center; }
+    height: 100%;
+    z-index: 10; }
+  .noAnimationContainer .noAnimationContentCustomImageBackground {
+    position: relative;
+    width: 40%;
+    height: 100%;
+    z-index: 10; }
+    @media screen and (max-width: 768px) and (orientation: portrait) {
+      .noAnimationContainer .noAnimationContentCustomImageBackground {
+        width: 100%;
+        height: 50%; } }
 
 .sceneTextWrapper {
   width: 100%;
@@ -170,6 +206,38 @@ body, html {
     .gifAnimationContainer {
       width: 100%;
       height: 65%; } }
+  .gifAnimationContainer #whyInfoContainer {
+    width: 100%;
+    height: 100%;
+    color: white;
+    position: absolute;
+    background: rgba(83, 0, 146, 0.85); }
+    .gifAnimationContainer #whyInfoContainer .whyInfoContainerClose {
+      background: url("../assets/cross.png");
+      width: 15px;
+      height: 15px;
+      position: absolute;
+      right: 10px;
+      top: 10px;
+      /* Firefox */
+      -moz-transition: all 0.5s ease;
+      /* WebKit */
+      -webkit-transition: all 0.5s ease;
+      /* Opera */
+      -o-transition: all 0.5s ease;
+      /* Standard */
+      transition: all 0.5s ease; }
+    .gifAnimationContainer #whyInfoContainer .whyInfoContainerClose:hover {
+      -moz-transform: rotate(180deg);
+      /* WebKit */
+      -webkit-transform: rotate(180deg);
+      /* Opera */
+      -o-transform: rotate(180deg);
+      /* Standard */
+      transform: rotate(180deg); }
+    .gifAnimationContainer #whyInfoContainer #whyInfoText {
+      width: 90%;
+      text-align: center; }
 
 .sceneTextContainer {
   width: 80%;

@@ -3,47 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <title>Index gifs bootstrap</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-    <link rel="stylesheet" href="stylesBootstrap.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/stylesBootstrap.css">
 </head>
 <body>
-<div id="preloadProgress">0%</div>
+<div id="preloadProgress" style="position: absolute;">0%</div>
 
-<div class="wrapper">
-    <div class="container">
-
-        <div class="content row">
-            <div class="infoContentContainer col-md-6">
-
-                <div class="socials"></div>
-                <div class="smallNavigation"></div>
-                <div class="sceneTextContainer noselect"></div>
-
-                <div class="bigNavigation">
-                    <div class="button button-dark navigationButton noselect" id="prevButton">Назад</div>
-                    <div class="button button-dark navigationButton noselect" id="nextButton">Вперед</div>
-                </div>
-            </div>
-
-            <div class="gifAnimationContainer  col-md-6">
-                <img id="gifAnimation"/>
-            </div>
-
-            <!--<div id="animationControl" class="replay"></div>-->
-        </div>
-
-        <div class="footer row">
-            <div class="footerControls col-md-6">
-                <div class="footerControlsButton noselect">Начать заново</div>
-                <div class="footerControlsButton noselect">О BOSE</div>
-            </div>
-            <div class="footerLogoContainer col-md-6">
-                <img id="logoImage" src="assets/logo.png">
+<div class="container" style="height: 14%; max-height: 220px; background-color: #492F92; color: white;">
+    <div class="row" style="height: 100%;">
+        <div class="col-6 flexbox">
+            <div class="row">
+                <div class="col-3 navigationBtnRewind handCursor"></div>
+                <div class="col-2 navigationBtnBack handCursor"></div>
+                <div class="col-3 navigationPagination handCursor">1/10</div>
+                <div style="width: 10%; height: 100%;"></div>
+                <div class="col-2 navigationBtnForw handCursor"></div>
             </div>
         </div>
 
+        <div class="col-3 flexbox">
+            <img src="assets/twitter_normal.png" class="socialButton">
+            <img src="assets/vk_normal.png" class="socialButton">
+            <img src="assets/fb_normal.png" class="socialButton">
+        </div>
+        <div class="col-3 flexbox" style="">
+            <img src="assets/logo.png" class="handCursor" style="width: 100%; height: auto;">
+        </div>
     </div>
 </div>
 
+<div class="container" style="height: 86%;">
+    <div class="row" style="height: 100%;">
+
+        <div class="col-xsl-6 contentBlock">
+            <img src="img/gifs/1.gif" class="img-fluid">
+        </div>
+
+        <div class="col-xsl-6 contentBlock" style="background-color: #0e90d2;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center infoTextWithAnimation">text</div>
+                </div>
+                <div class="row">
+                    <div class="col-12 text-center">button</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 </body>
 </html>

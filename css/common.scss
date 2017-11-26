@@ -1,6 +1,7 @@
+$break-x-small: 360px;
 $break-small: 480px;
 $break-med: 768px;
-$break-big: 1026px;
+$break-big: 1024px;
 
 body,html{
   width: 100%;
@@ -43,6 +44,10 @@ body,html{
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+.navigationButton{
+  height: 70%;
+  width: auto;
 }
 
 .button {

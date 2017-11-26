@@ -6,7 +6,7 @@
 declare var preloadImages:any;
 declare var Scenes:any;
 class AppGifs {
-    private ver:string = "0.0.2";
+    private ver:string = "0.0.3";
     private currentSequenceIndex:number = 0;
 
     private cache:string[];

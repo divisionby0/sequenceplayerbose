@@ -1,3 +1,5 @@
+@import "common";
+
 body,html{
   width: 100%;
   height: 100%;
@@ -8,26 +10,9 @@ body,html{
   -webkit-font-smoothing: antialiased;
 }
 
-.noselect {
-  -webkit-touch-callout: none; /* iOS Safari */
-  -webkit-user-select: none; /* Safari */
-  -khtml-user-select: none; /* Konqueror HTML */
-  -moz-user-select: none; /* Firefox */
-  -ms-user-select: none; /* Internet Explorer/Edge */
-  user-select: none; /* Non-prefixed version, currently
-                                  supported by Chrome and Opera */
-}
-
-.flexbox{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.flexboxVertical{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+.img-fluid{
+  display: block!important;
+  margin: auto!important;
 }
 
 .wrapper{
@@ -36,19 +21,111 @@ body,html{
   height: 100%;
 }
 
-.container{
-  width: 70%;
-  height: 90%;
-  margin: 0 auto;
-  background: url("assets/bg_about.jpg") no-repeat fixed;
-  background-size: cover;
+.navigationButtonBootstrap{
+  @extend .handCursor;
 }
 
-.content{
-  width: 100%;
-  height: 83%;
-  background-color: greenyellow;
+.navigationButtonBootstrap:hover{
+  -webkit-filter: grayscale; /*sepia, hue-rotate, invert....*/
+  -webkit-filter: brightness(50%);
 }
-.gifAnimationContainer{
-  background-color: red;
+
+.navigationBtnRewind{
+  @extend .navigationButtonBootstrap;
+  background: url('../assets/navigationArrowRewind.png') no-repeat;
+  background-size: auto 100%;
+}
+.navigationBtnBack{
+  @extend .navigationButtonBootstrap;
+  background: url('../assets/navigationArrowBack.png') no-repeat;
+  background-size: auto 100%;
+}
+.navigationBtnForw{
+  @extend .navigationButtonBootstrap;
+  background: url('../assets/navigationArrowForw.png') no-repeat;
+  background-size: auto 100%;
+}
+.navigationPagination{
+  @extend .flexbox;
+}
+
+.socialButton{
+  @extend .handCursor;
+  width: 33%;
+  height: auto;
+  display: block;
+  float: left;
+  padding: 0 3px;
+
+  @media only screen and (orientation:landscape) and (min-width: $break-med){
+      width: auto;
+      height: auto;
+  }
+  @media only screen and (orientation:landscape) and (max-width: $break-x-small){
+    width: auto;
+    height: auto;
+  }
+}
+
+.socialButton:hover{
+  -webkit-filter: grayscale; /*sepia, hue-rotate, invert....*/
+  -webkit-filter: brightness(50%);
+}
+
+@media only screen and (orientation:portrait){
+  .img-fluid{
+    width: auto;
+    height: 100%;
+  }
+}
+@media only screen and (orientation:landscape){
+  .img-fluid{
+    width: 100%;
+    height: auto;
+  }
+}
+@media only screen and (orientation:landscape) and (min-width: $break-big){
+  .img-fluid{
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media only screen and (max-width: $break-x-small){
+  .col-xsl-6{
+    width: 100%;
+  }
+}
+@media only screen and (min-width: $break-x-small) and (max-width: $break-small) {
+  .col-xsl-6{
+    width: 100%;
+  }
+}
+@media only screen and (min-width: $break-small){
+  .col-xsl-6{
+    width: 50%;
+  }
+}
+@media only screen and (min-width: $break-small) and (orientation:portrait){
+  .col-xsl-6{
+    width: 100%;
+  }
+}
+
+.contentBlock{
+  @extend .flexbox;
+  @media screen and (orientation: landscape){
+    height: 100% !important;
+  }
+  @media screen and (orientation: portrait){
+    height: 50% !important;
+  }
+}
+
+.gifAnimation{
+  width: 100%;
+  height: auto;
+}
+.infoTextWithAnimation{
+  font-size: 2em;
 }

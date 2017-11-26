@@ -37,9 +37,13 @@
         <div class="container">
             <div class="content">
                 <div class="noAnimationContainer">
-                    <div class="noAnimationContent">
+                    <div class="introImages">
+                        <img id="introImage1" src="assets/intro1.png">
+                    </div>
+
+                    <div id="noAnimationContent" class="noAnimationContent">
                         <div id="noAnimationContentText" class="sceneTextContainer noselect"></div>
-                        <div class="flexbox" style="padding-top: 20px;">
+                        <div id="noAnimationContentButtonContainer" class="flexbox" style="padding-top: 20px;">
                             <div class="button navigationButton noselect" id="noAnimationContentButton">Button</div>
                         </div>
                     </div>
@@ -48,6 +52,10 @@
                 <div class="gifAnimationContainer">
                     <div id="animationControl" class="replay"></div>
                     <img id="gifAnimation"/>
+                    <div id="whyInfoContainer" style="display: none;">
+                        <div id="whyInfoText" class="floatLeft noselect"></div>
+                        <div class="whyInfoContainerClose handCursor"></div>
+                    </div>
                 </div>
                 <div class="infoContentContainer">
                     <div class="flexbox sceneTextWrapper">
@@ -61,19 +69,33 @@
             </div>
 
             <div class="footer">
+                <div style="display: block; float: left; width: 50%; height:100%; background-color: yellow;">
+                    <div style="width:25%; float: left; display: block; height: 100%">Rew</div>
+                    <div style="width:25%; float: left; display: block; height: 100%">Bw</div>
+                    <div style="width:25%; float: left; display: block; height: 100%">1/10</div>
+                    <div style="width:25%; float: left; display: block; height: 100%">Fw</div>
+                </div>
+                <div style="display: block; float: left; width: 25%; height:100%; background-color: yellowgreen;"></div>
+                <div style="display: block; float: left; width: 25%; height:100%; background-color: blue;">
+                    <img id="logoImage" src="assets/logo.png" style="width: 100%;">
+                </div>
+                <!--
                 <div class="bigNavigation">
                     <div class="arrows">
                         <div class="arrowContainer">
+                            <div style="height: 26%; width: 1px;"></div>
                             <img id="rewindScenesButton" src="assets/navigationArrowRewind.png">
                         </div>
 
                         <div class="arrowContainer">
+                            <div style="height: 15%; width: 1px;"></div>
                             <img id="prevButton" src="assets/navigationArrowBack.png">
                         </div>
 
                         <div class="pagination noselect">1/10</div>
 
                         <div class="arrowContainer">
+                            <div style="height: 15%; width: 1px;"></div>
                             <img id="nextButton" src="assets/navigationArrowForw.png">
                         </div>
                     </div>
@@ -90,6 +112,7 @@
                 <div class="footerLogoContainer">
                     <img id="logoImage" src="assets/logo.png">
                 </div>
+                -->
             </div>
         </div>
     </div>

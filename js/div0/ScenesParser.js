@@ -13,8 +13,8 @@ var ScenesParser = (function () {
             var infoText = data[i].infoText;
             var whyText = data[i].whyText;
             var controls = data[i].controls;
-            var scene = new Scene(index, counter, useAnimation, animationUrl, infoText, whyText);
-            console.log("Scene ", index, "  controls ", controls);
+            var background = data[i].background;
+            var scene = new Scene(index, counter, useAnimation, animationUrl, infoText, whyText, background);
             if (controls) {
                 for (var j = 0; j < controls.length; j++) {
                     scene.addControl(controls[j]);
