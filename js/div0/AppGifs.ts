@@ -21,6 +21,7 @@ class AppGifs {
         this.createPreloadCollection();
         this.preloadAnimation();
         EventBus.addEventListener("NO_ANIMATION_CONTENT_BUTTON_CLICKED", ()=>this.onNoAnimationContentButtonClicked());
+        EventBus.addEventListener("INTRO_BUTTON_CLICKED", ()=>this.onIntroButtonClicked());
     }
     
     private parseScenes():void{
@@ -53,10 +54,17 @@ class AppGifs {
         $("#nextButton").click(()=>this.onNextButtonClicked());
         $("#rewindScenesButton").click(()=>this.onRewindButtonClicked());
         $("#animationControl").click(()=>this.onRestartAnimationClicked());
+
+        $(".navigationBtnBackBlack").click(()=>this.onPrevButtonClicked());
+        $(".navigationBtnForwBlack").click(()=>this.onNextButtonClicked());
+        $(".navigationBtnRewindBlack").click(()=>this.onRewindButtonClicked());
     }
 
     private onNoAnimationContentButtonClicked():void{
-        console.log("onNoAnimationContentButtonClicked");
+        this.onNextButtonClicked();
+    }
+
+    private onIntroButtonClicked():void{
         this.onNextButtonClicked();
     }
 

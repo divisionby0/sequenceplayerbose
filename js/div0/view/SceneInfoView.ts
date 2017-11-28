@@ -2,14 +2,14 @@
 ///<reference path="../Scene.ts"/>
 ///<reference path="../../libs/events/EventBus.ts"/>
 class SceneInfoView {
-    private whyStateBackground:string = "url('assets/bg_about.jpg')";
-    
+   
     private currentScene:Scene;
     
     constructor() {
         $("#noAnimationContentButton").click(()=>this.onNoAnimationContentButtonClicked());
-        $("#whyButton").click(()=>this.onWhyButtonClicked());
-        $(".whyInfoContainerClose").click(()=>this.onWhyCloseButtonClicked());
+        //$("#whyButton").click(()=>this.onWhyButtonClicked());
+        $(".gifAnimationOverlayCloseButton").click(()=>this.onWhyCloseButtonClicked());
+        $("#introButton").click(()=>this.onIntroButtonClicked());
     }
 
     public restartAnimation():void{
@@ -21,76 +21,98 @@ class SceneInfoView {
         var sceneInfoText:string = data.getInfoText();
         var whyText:string = data.getWhyText();
         var sceneCounter:number = data.getCounter();
-        console.log("sceneInfoText="+sceneInfoText);
-        console.log("sceneCounter="+sceneCounter);
+        var animationUrl:string = data.getAnimationUrl();
 
         $("#whyInfoContainer").hide();
-        $(".pagination").text(sceneCounter+"/"+totalScenes);
-
-        if(sceneCounter == 1){
-            $(".content").css("background-image", "none");
-            $(".content").css("background-color", "#492F92");
-            $(".introImages").show();
-        }
-        else{
-            $(".content").css("background-color", "#FFF");
-            $(".introImages").hide();
+        $(".navigationPagination").text(sceneCounter+"/"+totalScenes);
+        
+        if(data.hasAdditionalControls()){
+            $("#noAnimationContentButton").text(data.getControls()[0].text);
         }
 
-        if(data.isUseAnimation()){
-            $("#noAnimationContent").addClass("noAnimationContent");
-            $("#noAnimationContent").removeClass("noAnimationContentCustomImageBackground");
+        this.hideIntro();
+        this.hideNoAnimationContent();
+        this.hideGifAnimationOverlay();
 
-            $(".noAnimationContainer").hide();
-            $(".content").css("background-image", "none");
-            $(".gifAnimationContainer").show();
-            $(".infoContentContainer").show();
-            $("#animationControl").show();
-            $("#gifAnimation").attr("src", data.getAnimationUrl());
-            $(".sceneTextContainer").text(sceneInfoText);
-
-            $("#whyInfoText").text(whyText);
+        switch(sceneCounter){
+            case 1:
+                this.updateIntroText(sceneInfoText);
+                this.showIntro();
+                this.hideAnimationContent();
+                this.hideNoAnimationContent();
+                break;
+            case 2:
+            case 3:
+            case 4:
+            case 5:
+                this.updateAnimationContent(sceneInfoText, whyText, animationUrl);
+                this.showAnimationContent();
+                $("#whyButton").click(()=>this.onWhyButtonClicked());
+                break;
+            case 6:
+                this.updateNoAnimationContent(sceneInfoText);
+                this.hideAnimationContent();
+                this.showNoAnimationContent();
+                break;
         }
-        else{
-            $(".gifAnimationContainer").hide();
-            $(".infoContentContainer").hide();
-            $("#animationControl").hide();
-
-            $("#noAnimationContentText").text(sceneInfoText);
-            $(".noAnimationContainer").show();
-
-
-            $("#noAnimationContent").addClass("noAnimationContent");
-            $("#noAnimationContent").removeClass("noAnimationContentCustomImageBackground");
-
-            switch(sceneCounter){
-                case 1:
-                    $("#noAnimationContent").removeClass("noAnimationContent");
-                    $("#noAnimationContent").addClass("noAnimationContentCustomImageBackground");
-                    break;
-                case 6:
-                    $("#noAnimationContent").removeClass("noAnimationContent");
-                    $("#noAnimationContent").addClass("noAnimationContentCustomImageBackground");
-                    $(".content").css("background-image", this.whyStateBackground);
-                    break;
-                
-            }
-            
-            if(data.hasAdditionalControls()){
-                $("#noAnimationContentButton").text(data.getControls()[0].text);
-            }
-        }
+        
     }
 
+    private hideAnimationContent():void{
+        $("#contentHasAnimation").hide();
+    }
+    private showAnimationContent():void{
+        $("#contentHasAnimation").show();
+    }
+    private updateAnimationContent(sceneInfoText:string, whyText:string, animationUrl:string):void{
+        $("#gifAnimation").attr("src", animationUrl);
+        $(".infoTextWithAnimation").html(sceneInfoText);
+        $("#whyInfoText").text(whyText);
+    }
+    
+    private hideNoAnimationContent():void{
+        $("#contentNoAnimation").hide();
+    }
+    private showNoAnimationContent():void{
+        $("#contentNoAnimation").show();
+    }
+    private updateNoAnimationContent(text:string):void{
+        $("#noAnimationContentText").text(text);
+    }
+    
+    private hideIntro():void{
+        $("#contentIntro").hide();
+    }
+    private showIntro():void{
+        $("#contentIntro").show();
+    }
+    private updateIntroText(text:string):void{
+        $("#introText").html(text);
+    }
+
+    private onIntroButtonClicked():void{
+        EventBus.dispatchEvent("INTRO_BUTTON_CLICKED", null);
+    }
+    
     private onWhyButtonClicked():void{
+        console.log("why clicked");
         $("#whyInfoContainer").show();
         $("#animationControl").hide();
+        this.showGifAnimationOverlay();
     }
     private onWhyCloseButtonClicked():void{
         $("#whyInfoContainer").hide();
+        this.hideGifAnimationOverlay();
         if(this.currentScene.isUseAnimation()){
             $("#animationControl").show();
         }
+    }
+
+    private showGifAnimationOverlay():void{
+        $(".gifAnimationOverlay").show();
+    }
+    private hideGifAnimationOverlay():void{
+        $(".gifAnimationOverlay").hide();
     }
 
     private onNoAnimationContentButtonClicked():void{

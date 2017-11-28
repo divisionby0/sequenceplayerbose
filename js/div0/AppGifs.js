@@ -14,6 +14,7 @@ var AppGifs = (function () {
         this.createPreloadCollection();
         this.preloadAnimation();
         EventBus.addEventListener("NO_ANIMATION_CONTENT_BUTTON_CLICKED", function () { return _this.onNoAnimationContentButtonClicked(); });
+        EventBus.addEventListener("INTRO_BUTTON_CLICKED", function () { return _this.onIntroButtonClicked(); });
     }
     AppGifs.prototype.parseScenes = function () {
         this.scenes = ScenesParser.parse(Scenes);
@@ -43,9 +44,14 @@ var AppGifs = (function () {
         $("#nextButton").click(function () { return _this.onNextButtonClicked(); });
         $("#rewindScenesButton").click(function () { return _this.onRewindButtonClicked(); });
         $("#animationControl").click(function () { return _this.onRestartAnimationClicked(); });
+        $(".navigationBtnBackBlack").click(function () { return _this.onPrevButtonClicked(); });
+        $(".navigationBtnForwBlack").click(function () { return _this.onNextButtonClicked(); });
+        $(".navigationBtnRewindBlack").click(function () { return _this.onRewindButtonClicked(); });
     };
     AppGifs.prototype.onNoAnimationContentButtonClicked = function () {
-        console.log("onNoAnimationContentButtonClicked");
+        this.onNextButtonClicked();
+    };
+    AppGifs.prototype.onIntroButtonClicked = function () {
         this.onNextButtonClicked();
     };
     AppGifs.prototype.onPrevButtonClicked = function () {

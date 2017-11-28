@@ -21,6 +21,9 @@ body, html {
   /* Non-prefixed version, currently
                supported by Chrome and Opera */ }
 
+.nopointerevents {
+  pointer-events: none; }
+
 .nopadding {
   padding-right: 0 !important;
   padding-left: 0 !important; }
@@ -28,14 +31,17 @@ body, html {
 .button-dark {
   background: #492F92 !important; }
 
-.handCursor, .button, .navigationButtonBootstrap, .navigationBtnRewind, .navigationBtnBack, .navigationBtnForw, .socialButton, .gifAnimationOverlay .gifAnimationOverlayCloseButton, .gifReplayButton {
+.handCursor, .button, .navigationButtonBootstrap, .navigationBtnRewindBlack, .navigationBtnBackBlack, .navigationBtnForwBlack, .navigationBtnRewind, .navigationBtnBack, .navigationBtnForw, .socialButton, .gifAnimationOverlay .gifAnimationOverlayCloseButton, .gifReplayButton {
   cursor: pointer; }
+
+.marginHorizontalCentering, #whyButton, #introButton, #noAnimationContentButton {
+  margin: 0 auto; }
 
 .floatLeft {
   float: left;
   display: block; }
 
-.flexbox, .navigationPagination, .contentBlock, .contentBlockGifContainer, .gifAnimationOverlay, #contentNoAnimation, #contentIntro #introContentContainer {
+.flexbox, .navigationPagination, .contentBlock, .contentBlockGifContainer, .gifAnimationOverlay, #contentNoAnimation, #contentIntro .introImageContainer, #contentIntro #introContentContainer {
   display: flex;
   justify-content: center;
   align-items: center; }
@@ -58,11 +64,12 @@ body, html {
   text-align: center;
   text-transform: uppercase;
   font-family: 'Rubik', sans-serif;
-  color: white; }
+  color: white;
+  max-width: 200px; }
   @media screen and (max-width: 480px) {
     .button {
       font-size: 1em;
-      padding: 0.1em 0.5em;
+      padding: 0.7em 1.4em;
       border-radius: 1em; } }
   @media screen and (max-width: 768px) {
     .button {
@@ -80,10 +87,22 @@ body, html {
   background-color: #492F92;
   color: white; }
 
-.navigationButtonBootstrap:hover, .navigationBtnRewind:hover, .navigationBtnBack:hover, .navigationBtnForw:hover {
+.navigationButtonBootstrap:hover, .navigationBtnRewindBlack:hover, .navigationBtnBackBlack:hover, .navigationBtnForwBlack:hover, .navigationBtnRewind:hover, .navigationBtnBack:hover, .navigationBtnForw:hover {
   -webkit-filter: grayscale;
   /*sepia, hue-rotate, invert....*/
   -webkit-filter: brightness(50%); }
+
+.navigationBtnRewindBlack {
+  background: url("../assets/navigationArrowRewindBlack.png") no-repeat;
+  background-size: auto 100%; }
+
+.navigationBtnBackBlack {
+  background: url("../assets/navigationArrowBackBlack.png") no-repeat;
+  background-size: auto 100%; }
+
+.navigationBtnForwBlack {
+  background: url("../assets/navigationArrowForwBlack.png") no-repeat;
+  background-size: auto 100%; }
 
 .navigationBtnRewind {
   background: url("../assets/navigationArrowRewind.png") no-repeat;
@@ -188,6 +207,12 @@ body, html {
     -o-transform: rotate(180deg);
     /* Standard */
     transform: rotate(180deg); }
+  @media only screen and (min-width: 480px) {
+    .gifAnimationOverlay #whyInfoText {
+      font-size: 0.9em; } }
+  @media only screen and (min-width: 1024px) {
+    .gifAnimationOverlay #whyInfoText {
+      font-size: 1.8em; } }
 
 .gifReplayButton {
   position: absolute;
@@ -206,8 +231,23 @@ body, html {
   width: 100%;
   height: auto; }
 
-.infoTextWithAnimation {
-  font-size: 2em; }
+.infoTextWithAnimation, #contentNoAnimation #noAnimationContentText {
+  padding-bottom: 20px; }
+  @media only screen and (min-width: 360px) {
+    .infoTextWithAnimation, #contentNoAnimation #noAnimationContentText {
+      font-size: 1em; } }
+  @media only screen and (min-width: 480px) {
+    .infoTextWithAnimation, #contentNoAnimation #noAnimationContentText {
+      font-size: 1.2em; } }
+  @media only screen and (min-width: 768px) {
+    .infoTextWithAnimation, #contentNoAnimation #noAnimationContentText {
+      font-size: 2em; } }
+  @media only screen and (min-width: 1024px) {
+    .infoTextWithAnimation, #contentNoAnimation #noAnimationContentText {
+      font-size: 2.6em; } }
+
+#whyButton {
+  color: #492F92 !important; }
 
 #contentHasAnimation {
   height: 86%; }
@@ -222,15 +262,20 @@ body, html {
     padding: 20px; }
 
 #contentIntro {
-  height: 86%;
-  color: white;
-  background-color: #492F92; }
+  height: 86%; }
+  #contentIntro .introImageContainer {
+    width: 100%;
+    height: 100%;
+    position: relative; }
   #contentIntro .introImage {
+    /*
     float: right;
     display: block;
+
     position: absolute;
     right: 0;
-    bottom: 0; }
+    bottom: 0;
+    */ }
   @media screen and (orientation: landscape) {
     #contentIntro #introImageContainer {
       width: 50%; }

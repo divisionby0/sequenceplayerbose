@@ -4,77 +4,101 @@
 var SceneInfoView = (function () {
     function SceneInfoView() {
         var _this = this;
-        this.whyStateBackground = "url('assets/bg_about.jpg')";
         $("#noAnimationContentButton").click(function () { return _this.onNoAnimationContentButtonClicked(); });
-        $("#whyButton").click(function () { return _this.onWhyButtonClicked(); });
-        $(".whyInfoContainerClose").click(function () { return _this.onWhyCloseButtonClicked(); });
+        //$("#whyButton").click(()=>this.onWhyButtonClicked());
+        $(".gifAnimationOverlayCloseButton").click(function () { return _this.onWhyCloseButtonClicked(); });
+        $("#introButton").click(function () { return _this.onIntroButtonClicked(); });
     }
     SceneInfoView.prototype.restartAnimation = function () {
         $("#gifAnimation").attr("src", this.currentScene.getAnimationUrl());
     };
     SceneInfoView.prototype.setData = function (data, totalScenes) {
+        var _this = this;
         this.currentScene = data;
         var sceneInfoText = data.getInfoText();
         var whyText = data.getWhyText();
         var sceneCounter = data.getCounter();
-        console.log("sceneInfoText=" + sceneInfoText);
-        console.log("sceneCounter=" + sceneCounter);
+        var animationUrl = data.getAnimationUrl();
         $("#whyInfoContainer").hide();
-        $(".pagination").text(sceneCounter + "/" + totalScenes);
-        if (sceneCounter == 1) {
-            $(".content").css("background-image", "none");
-            $(".content").css("background-color", "#492F92");
-            $(".introImages").show();
+        $(".navigationPagination").text(sceneCounter + "/" + totalScenes);
+        if (data.hasAdditionalControls()) {
+            $("#noAnimationContentButton").text(data.getControls()[0].text);
         }
-        else {
-            $(".content").css("background-color", "#FFF");
-            $(".introImages").hide();
-        }
-        if (data.isUseAnimation()) {
-            $("#noAnimationContent").addClass("noAnimationContent");
-            $("#noAnimationContent").removeClass("noAnimationContentCustomImageBackground");
-            $(".noAnimationContainer").hide();
-            $(".content").css("background-image", "none");
-            $(".gifAnimationContainer").show();
-            $(".infoContentContainer").show();
-            $("#animationControl").show();
-            $("#gifAnimation").attr("src", data.getAnimationUrl());
-            $(".sceneTextContainer").text(sceneInfoText);
-            $("#whyInfoText").text(whyText);
-        }
-        else {
-            $(".gifAnimationContainer").hide();
-            $(".infoContentContainer").hide();
-            $("#animationControl").hide();
-            $("#noAnimationContentText").text(sceneInfoText);
-            $(".noAnimationContainer").show();
-            $("#noAnimationContent").addClass("noAnimationContent");
-            $("#noAnimationContent").removeClass("noAnimationContentCustomImageBackground");
-            switch (sceneCounter) {
-                case 1:
-                    $("#noAnimationContent").removeClass("noAnimationContent");
-                    $("#noAnimationContent").addClass("noAnimationContentCustomImageBackground");
-                    break;
-                case 6:
-                    $("#noAnimationContent").removeClass("noAnimationContent");
-                    $("#noAnimationContent").addClass("noAnimationContentCustomImageBackground");
-                    $(".content").css("background-image", this.whyStateBackground);
-                    break;
-            }
-            if (data.hasAdditionalControls()) {
-                $("#noAnimationContentButton").text(data.getControls()[0].text);
-            }
+        this.hideIntro();
+        this.hideNoAnimationContent();
+        this.hideGifAnimationOverlay();
+        switch (sceneCounter) {
+            case 1:
+                this.updateIntroText(sceneInfoText);
+                this.showIntro();
+                this.hideAnimationContent();
+                this.hideNoAnimationContent();
+                break;
+            case 2:
+            case 3:
+            case 4:
+            case 5:
+                this.updateAnimationContent(sceneInfoText, whyText, animationUrl);
+                this.showAnimationContent();
+                $("#whyButton").click(function () { return _this.onWhyButtonClicked(); });
+                break;
+            case 6:
+                this.updateNoAnimationContent(sceneInfoText);
+                this.hideAnimationContent();
+                this.showNoAnimationContent();
+                break;
         }
     };
+    SceneInfoView.prototype.hideAnimationContent = function () {
+        $("#contentHasAnimation").hide();
+    };
+    SceneInfoView.prototype.showAnimationContent = function () {
+        $("#contentHasAnimation").show();
+    };
+    SceneInfoView.prototype.updateAnimationContent = function (sceneInfoText, whyText, animationUrl) {
+        $("#gifAnimation").attr("src", animationUrl);
+        $(".infoTextWithAnimation").html(sceneInfoText);
+        $("#whyInfoText").text(whyText);
+    };
+    SceneInfoView.prototype.hideNoAnimationContent = function () {
+        $("#contentNoAnimation").hide();
+    };
+    SceneInfoView.prototype.showNoAnimationContent = function () {
+        $("#contentNoAnimation").show();
+    };
+    SceneInfoView.prototype.updateNoAnimationContent = function (text) {
+        $("#noAnimationContentText").text(text);
+    };
+    SceneInfoView.prototype.hideIntro = function () {
+        $("#contentIntro").hide();
+    };
+    SceneInfoView.prototype.showIntro = function () {
+        $("#contentIntro").show();
+    };
+    SceneInfoView.prototype.updateIntroText = function (text) {
+        $("#introText").html(text);
+    };
+    SceneInfoView.prototype.onIntroButtonClicked = function () {
+        EventBus.dispatchEvent("INTRO_BUTTON_CLICKED", null);
+    };
     SceneInfoView.prototype.onWhyButtonClicked = function () {
+        console.log("why clicked");
         $("#whyInfoContainer").show();
         $("#animationControl").hide();
+        this.showGifAnimationOverlay();
     };
     SceneInfoView.prototype.onWhyCloseButtonClicked = function () {
         $("#whyInfoContainer").hide();
+        this.hideGifAnimationOverlay();
         if (this.currentScene.isUseAnimation()) {
             $("#animationControl").show();
         }
+    };
+    SceneInfoView.prototype.showGifAnimationOverlay = function () {
+        $(".gifAnimationOverlay").show();
+    };
+    SceneInfoView.prototype.hideGifAnimationOverlay = function () {
+        $(".gifAnimationOverlay").hide();
     };
     SceneInfoView.prototype.onNoAnimationContentButtonClicked = function () {
         EventBus.dispatchEvent("NO_ANIMATION_CONTENT_BUTTON_CLICKED", null);
