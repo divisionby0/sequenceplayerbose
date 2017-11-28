@@ -16,6 +16,7 @@ class AppGifs {
     private view:SceneInfoView = new SceneInfoView();
 
     constructor() {
+        this.showPreloader();
         $("#verContainer").text(this.ver);
         this.parseScenes();
         this.createPreloadCollection();
@@ -102,7 +103,20 @@ class AppGifs {
         $("#preloadProgress").text(progress+" %");
     }
     private preloadFinished():void{
+        this.hidePreloader();
+        this.showHeader();
         $("#preloadProgress").text("");
         this.start();
+    }
+
+    private showHeader():void{
+        $("#header").show()
+    }
+
+    private hidePreloader():void{
+        $("#preloaderContainer").hide();
+    }
+    private showPreloader():void{
+        $("#preloaderContainer").show();
     }
 }

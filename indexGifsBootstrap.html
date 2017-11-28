@@ -9,9 +9,16 @@
     <link rel="stylesheet" href="css/stylesBootstrap.css">
 </head>
 <body>
-<div id="preloadProgress" style="position: absolute;">0%</div>
 
-<div id="header" class="container">
+<div id="preloaderContainer" style="height: 100%; width:100%; position: relative; display: none;">
+    <div style="position: absolute; top: 50%; width:100%;height: 100px; margin-top: -50px;">
+        <div style="display: block;width: 100%">
+            <img src="assets/ajax-loader.gif" style="display: block; width: 32px; height:32px; margin: 0 auto;">
+        </div>
+        <div id="preloadProgress" style="display: block; width: 100%; text-align: center;">25%</div>
+    </div>
+</div>
+<div id="header" class="container" style="display: none;">
     <div class="row" style="height: 100%;">
         <div class="col-6 flexbox nopadding">
             <div class="row">
@@ -111,7 +118,6 @@
         </div>
     </div>
 </div>
-
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>

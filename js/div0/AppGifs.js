@@ -9,6 +9,7 @@ var AppGifs = (function () {
         this.ver = "0.0.3";
         this.currentSequenceIndex = 0;
         this.view = new SceneInfoView();
+        this.showPreloader();
         $("#verContainer").text(this.ver);
         this.parseScenes();
         this.createPreloadCollection();
@@ -84,8 +85,19 @@ var AppGifs = (function () {
         $("#preloadProgress").text(progress + " %");
     };
     AppGifs.prototype.preloadFinished = function () {
+        this.hidePreloader();
+        this.showHeader();
         $("#preloadProgress").text("");
         this.start();
+    };
+    AppGifs.prototype.showHeader = function () {
+        $("#header").show();
+    };
+    AppGifs.prototype.hidePreloader = function () {
+        $("#preloaderContainer").hide();
+    };
+    AppGifs.prototype.showPreloader = function () {
+        $("#preloaderContainer").show();
     };
     return AppGifs;
 }());
