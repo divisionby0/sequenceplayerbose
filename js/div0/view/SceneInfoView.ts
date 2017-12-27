@@ -45,11 +45,18 @@ class SceneInfoView {
             case 3:
             case 4:
             case 5:
+            case 6:
+            case 7:
+            case 9:
+            case 10:
+            case 11:
+            case 12:
+            case 13:
                 this.updateAnimationContent(sceneInfoText, whyText, animationUrl);
                 this.showAnimationContent();
                 $("#whyButton").click(()=>this.onWhyButtonClicked());
                 break;
-            case 6:
+            case 8:
                 this.updateNoAnimationContent(sceneInfoText);
                 this.hideAnimationContent();
                 this.showNoAnimationContent();
@@ -60,6 +67,7 @@ class SceneInfoView {
 
     private hideAnimationContent():void{
         $("#contentHasAnimation").hide();
+        $("#gifAnimation").attr("src", "none");
     }
     private showAnimationContent():void{
         $("#contentHasAnimation").show();
@@ -95,7 +103,6 @@ class SceneInfoView {
     }
     
     private onWhyButtonClicked():void{
-        console.log("why clicked");
         $("#whyInfoContainer").show();
         $("#animationControl").hide();
         this.showGifAnimationOverlay();

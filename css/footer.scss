@@ -57,26 +57,26 @@
 
       .twitter{
         @extend  .socialButton;
-        background: url("../assets/twitter_normal.png") no-repeat;
+        background: url("../assets/twitter_normal1.png") no-repeat;
       }
       .twitter:hover{
-        background: url("../assets/twitter_hovered.png") no-repeat;
+        background: url("../assets/twitter_hovered1.png") no-repeat;
       }
 
       .facebook{
         @extend  .socialButton;
-        background: url("../assets/fb_normal.png") no-repeat;
+        background: url("../assets/fb_normal1.png") no-repeat;
       }
       .facebook:hover{
-        background: url("../assets/fb_hovered.png") no-repeat;
+        background: url("../assets/fb_hovered1.png") no-repeat;
       }
 
       .vk{
         @extend  .socialButton;
-        background: url("../assets/vk_normal.png") no-repeat;
+        background: url("../assets/vk_normal1.png") no-repeat;
       }
       .vk:hover{
-        background: url("../assets/vk_hovered.png") no-repeat;
+        background: url("../assets/vk_hovered1.png") no-repeat;
       }
     }
   }

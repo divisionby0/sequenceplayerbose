@@ -106,17 +106,17 @@ body, html {
       width: 100%;
       color: white; }
       .footer .footerSocialsContainer .socials .twitter {
-        background: url("../assets/twitter_normal.png") no-repeat; }
+        background: url("../assets/twitter_normal1.png") no-repeat; }
       .footer .footerSocialsContainer .socials .twitter:hover {
-        background: url("../assets/twitter_hovered.png") no-repeat; }
+        background: url("../assets/twitter_hovered1.png") no-repeat; }
       .footer .footerSocialsContainer .socials .facebook {
-        background: url("../assets/fb_normal.png") no-repeat; }
+        background: url("../assets/fb_normal1.png") no-repeat; }
       .footer .footerSocialsContainer .socials .facebook:hover {
-        background: url("../assets/fb_hovered.png") no-repeat; }
+        background: url("../assets/fb_hovered1.png") no-repeat; }
       .footer .footerSocialsContainer .socials .vk {
-        background: url("../assets/vk_normal.png") no-repeat; }
+        background: url("../assets/vk_normal1.png") no-repeat; }
       .footer .footerSocialsContainer .socials .vk:hover {
-        background: url("../assets/vk_hovered.png") no-repeat; }
+        background: url("../assets/vk_hovered1.png") no-repeat; }
   .footer .footerLogoContainer {
     width: 30%;
     height: 100%;

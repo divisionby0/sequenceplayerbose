@@ -38,11 +38,18 @@ var SceneInfoView = (function () {
             case 3:
             case 4:
             case 5:
+            case 6:
+            case 7:
+            case 9:
+            case 10:
+            case 11:
+            case 12:
+            case 13:
                 this.updateAnimationContent(sceneInfoText, whyText, animationUrl);
                 this.showAnimationContent();
                 $("#whyButton").click(function () { return _this.onWhyButtonClicked(); });
                 break;
-            case 6:
+            case 8:
                 this.updateNoAnimationContent(sceneInfoText);
                 this.hideAnimationContent();
                 this.showNoAnimationContent();
@@ -51,6 +58,7 @@ var SceneInfoView = (function () {
     };
     SceneInfoView.prototype.hideAnimationContent = function () {
         $("#contentHasAnimation").hide();
+        $("#gifAnimation").attr("src", "none");
     };
     SceneInfoView.prototype.showAnimationContent = function () {
         $("#contentHasAnimation").show();
@@ -82,7 +90,6 @@ var SceneInfoView = (function () {
         EventBus.dispatchEvent("INTRO_BUTTON_CLICKED", null);
     };
     SceneInfoView.prototype.onWhyButtonClicked = function () {
-        console.log("why clicked");
         $("#whyInfoContainer").show();
         $("#animationControl").hide();
         this.showGifAnimationOverlay();

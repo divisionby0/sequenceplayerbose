@@ -41,7 +41,7 @@ body, html {
   float: left;
   display: block; }
 
-.flexbox, .navigationPagination, .contentBlock, .contentBlockGifContainer, .gifAnimationOverlay, #contentNoAnimation, #contentIntro .introImageContainer, #contentIntro #introContentContainer {
+.flexbox, .navigationPagination, .contentBlock, .contentBlockGifContainer, .gifAnimationOverlay, #contentNoAnimation, #contentOutro #outroContentContainer, #contentIntro .introImageContainer, #contentIntro #introContentContainer {
   display: flex;
   justify-content: center;
   align-items: center; }
@@ -131,11 +131,11 @@ body, html {
   @media only screen and (orientation: landscape) and (min-width: 768px) {
     .socialButton {
       width: auto;
-      height: auto; } }
+      height: 25%; } }
   @media only screen and (orientation: landscape) and (max-width: 360px) {
     .socialButton {
       width: auto;
-      height: auto; } }
+      height: 25%; } }
 
 .socialButton:hover {
   -webkit-filter: grayscale;
@@ -261,6 +261,23 @@ body, html {
   #contentNoAnimation #noAnimationContentText {
     padding: 20px; }
 
+#contentOutro {
+  width: 100%;
+  height: 100%; }
+  #contentOutro #outroContentContainer {
+    height: 100%;
+    color: white;
+    background: url("../assets/outro.jpg") no-repeat;
+    background-size: cover; }
+  #contentOutro .outroImage {
+    width: 100%;
+    height: auto;
+    padding-bottom: 4em; }
+  #contentOutro #outroTextContainer {
+    position: relative;
+    width: 100%;
+    height: 100%; }
+
 #contentIntro {
   height: 86%; }
   #contentIntro .introImageContainer {
@@ -292,5 +309,10 @@ body, html {
     #contentIntro img {
       width: auto;
       height: 100%; } }
+
+.logo {
+  background: url("../assets/logoRectSmall.png") no-repeat;
+  background-size: auto 100%;
+  height: 100%; }
 
 /*# sourceMappingURL=stylesBootstrap.css.map */
