@@ -77,7 +77,7 @@ var Scenes = [
         index:9,
         counter:10,
         useAnimation:true,
-        animationUrl:"img/gifs/7.gif",
+        animationUrl:"img/gifs/9.gif",
         infoText:"Для Bose неважно, какой формы твоя комната и где стоит диван<br/><a id='whyButton' href='#'>Почему ?</a>",
         whyText:"В системах Bose используется технология Direct/Reflecting, сочетающая прямой и отражённый звук. Это обеспечивает равномерное покрытие всего помещения, что гарантирует отличный результат в любой его точке."
     },
@@ -92,15 +92,6 @@ var Scenes = [
     {
         index:11,
         counter:12,
-        useAnimation:true,
-        animationUrl:"img/gifs/9.gif",
-        infoText:"Теперь колонки используют отражения от стен, заполняя звуком всё пространство<br/><a id='whyButton' href='#'>Почему ?</a>",
-        whyText:"Текст для кнопки ПОЧЕМУ"
-    },
-
-    {
-        index:12,
-        counter:13,
         useAnimation:true,
         animationUrl:"img/gifs/11.gif",
         infoText:"Теперь управлять музыкой по всему дому можно со своего планшета или смартфона<br/><a id='whyButton' href='#'>Почему ?</a>",
