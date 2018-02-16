@@ -10,6 +10,7 @@ class SceneInfoView {
         //$("#whyButton").click(()=>this.onWhyButtonClicked());
         $(".gifAnimationOverlayCloseButton").click(()=>this.onWhyCloseButtonClicked());
         $("#introButton").click(()=>this.onIntroButtonClicked());
+        $("#outroButton").click(()=>this.onOutroButtonClicked());
     }
 
     public restartAnimation():void{
@@ -31,6 +32,7 @@ class SceneInfoView {
         }
 
         this.hideIntro();
+        this.hideOutro();
         this.hideNoAnimationContent();
         this.hideGifAnimationOverlay();
 
@@ -52,6 +54,7 @@ class SceneInfoView {
             case 11:
             case 12:
             case 13:
+            case 14:
                 this.updateAnimationContent(sceneInfoText, whyText, animationUrl);
                 this.showAnimationContent();
                 $("#whyButton").click(()=>this.onWhyButtonClicked());
@@ -61,8 +64,13 @@ class SceneInfoView {
                 this.hideAnimationContent();
                 this.showNoAnimationContent();
                 break;
+            case 15:
+                this.updateOutroText(sceneInfoText);
+                this.showOutro();
+                this.hideAnimationContent();
+                this.hideNoAnimationContent();
+                break;
         }
-        
     }
 
     private hideAnimationContent():void{
@@ -94,12 +102,24 @@ class SceneInfoView {
     private showIntro():void{
         $("#contentIntro").show();
     }
+    private showOutro():void{
+        $("#contentOutro").show();
+    }
+    private hideOutro():void{
+        $("#contentOutro").hide();
+    }
     private updateIntroText(text:string):void{
         $("#introText").html(text);
+    }
+    private updateOutroText(text:string):void{
+        $("#outroText").html(text);
     }
 
     private onIntroButtonClicked():void{
         EventBus.dispatchEvent("INTRO_BUTTON_CLICKED", null);
+    }
+    private onOutroButtonClicked():void{
+        EventBus.dispatchEvent("OUTRO_BUTTON_CLICKED", null);
     }
     
     private onWhyButtonClicked():void{

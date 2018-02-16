@@ -6,7 +6,7 @@
 declare var preloadImages:any;
 declare var Scenes:any;
 class AppGifs {
-    private ver:string = "0.0.3";
+    private ver:string = "0.0.4";
     private currentSequenceIndex:number = 0;
 
     private cache:string[];
@@ -23,6 +23,7 @@ class AppGifs {
         this.preloadAnimation();
         EventBus.addEventListener("NO_ANIMATION_CONTENT_BUTTON_CLICKED", ()=>this.onNoAnimationContentButtonClicked());
         EventBus.addEventListener("INTRO_BUTTON_CLICKED", ()=>this.onIntroButtonClicked());
+        EventBus.addEventListener("OUTRO_BUTTON_CLICKED", ()=>this.onOutroButtonClicked());
     }
     
     private parseScenes():void{
@@ -66,6 +67,9 @@ class AppGifs {
     }
 
     private onIntroButtonClicked():void{
+        this.onNextButtonClicked();
+    }
+    private onOutroButtonClicked():void{
         this.onNextButtonClicked();
     }
 

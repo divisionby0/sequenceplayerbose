@@ -8,6 +8,7 @@ var SceneInfoView = (function () {
         //$("#whyButton").click(()=>this.onWhyButtonClicked());
         $(".gifAnimationOverlayCloseButton").click(function () { return _this.onWhyCloseButtonClicked(); });
         $("#introButton").click(function () { return _this.onIntroButtonClicked(); });
+        $("#outroButton").click(function () { return _this.onOutroButtonClicked(); });
     }
     SceneInfoView.prototype.restartAnimation = function () {
         $("#gifAnimation").attr("src", this.currentScene.getAnimationUrl());
@@ -25,6 +26,7 @@ var SceneInfoView = (function () {
             $("#noAnimationContentButton").text(data.getControls()[0].text);
         }
         this.hideIntro();
+        this.hideOutro();
         this.hideNoAnimationContent();
         this.hideGifAnimationOverlay();
         switch (sceneCounter) {
@@ -45,6 +47,7 @@ var SceneInfoView = (function () {
             case 11:
             case 12:
             case 13:
+            case 14:
                 this.updateAnimationContent(sceneInfoText, whyText, animationUrl);
                 this.showAnimationContent();
                 $("#whyButton").click(function () { return _this.onWhyButtonClicked(); });
@@ -53,6 +56,12 @@ var SceneInfoView = (function () {
                 this.updateNoAnimationContent(sceneInfoText);
                 this.hideAnimationContent();
                 this.showNoAnimationContent();
+                break;
+            case 15:
+                this.updateOutroText(sceneInfoText);
+                this.showOutro();
+                this.hideAnimationContent();
+                this.hideNoAnimationContent();
                 break;
         }
     };
@@ -83,11 +92,23 @@ var SceneInfoView = (function () {
     SceneInfoView.prototype.showIntro = function () {
         $("#contentIntro").show();
     };
+    SceneInfoView.prototype.showOutro = function () {
+        $("#contentOutro").show();
+    };
+    SceneInfoView.prototype.hideOutro = function () {
+        $("#contentOutro").hide();
+    };
     SceneInfoView.prototype.updateIntroText = function (text) {
         $("#introText").html(text);
     };
+    SceneInfoView.prototype.updateOutroText = function (text) {
+        $("#outroText").html(text);
+    };
     SceneInfoView.prototype.onIntroButtonClicked = function () {
         EventBus.dispatchEvent("INTRO_BUTTON_CLICKED", null);
+    };
+    SceneInfoView.prototype.onOutroButtonClicked = function () {
+        EventBus.dispatchEvent("OUTRO_BUTTON_CLICKED", null);
     };
     SceneInfoView.prototype.onWhyButtonClicked = function () {
         $("#whyInfoContainer").show();

@@ -6,7 +6,7 @@
 var AppGifs = (function () {
     function AppGifs() {
         var _this = this;
-        this.ver = "0.0.3";
+        this.ver = "0.0.4";
         this.currentSequenceIndex = 0;
         this.view = new SceneInfoView();
         this.showPreloader();
@@ -16,6 +16,7 @@ var AppGifs = (function () {
         this.preloadAnimation();
         EventBus.addEventListener("NO_ANIMATION_CONTENT_BUTTON_CLICKED", function () { return _this.onNoAnimationContentButtonClicked(); });
         EventBus.addEventListener("INTRO_BUTTON_CLICKED", function () { return _this.onIntroButtonClicked(); });
+        EventBus.addEventListener("OUTRO_BUTTON_CLICKED", function () { return _this.onOutroButtonClicked(); });
     }
     AppGifs.prototype.parseScenes = function () {
         this.scenes = ScenesParser.parse(Scenes);
@@ -53,6 +54,9 @@ var AppGifs = (function () {
         this.onNextButtonClicked();
     };
     AppGifs.prototype.onIntroButtonClicked = function () {
+        this.onNextButtonClicked();
+    };
+    AppGifs.prototype.onOutroButtonClicked = function () {
         this.onNextButtonClicked();
     };
     AppGifs.prototype.onPrevButtonClicked = function () {

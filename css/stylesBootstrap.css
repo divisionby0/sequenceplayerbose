@@ -34,14 +34,14 @@ body, html {
 .handCursor, .button, .navigationButtonBootstrap, .navigationBtnRewindBlack, .navigationBtnBackBlack, .navigationBtnForwBlack, .navigationBtnRewind, .navigationBtnBack, .navigationBtnForw, .socialButton, .gifAnimationOverlay .gifAnimationOverlayCloseButton, .gifReplayButton {
   cursor: pointer; }
 
-.marginHorizontalCentering, #whyButton, #introButton, #noAnimationContentButton {
+.marginHorizontalCentering, #whyButton, #introButton, #outroButton, #noAnimationContentButton {
   margin: 0 auto; }
 
 .floatLeft {
   float: left;
   display: block; }
 
-.flexbox, .navigationPagination, .contentBlock, .contentBlockGifContainer, .gifAnimationOverlay, #contentNoAnimation, #contentOutro #outroContentContainer, #contentIntro .introImageContainer, #contentIntro #introContentContainer {
+.flexbox, .navigationPagination, .contentBlock, .contentBlockGifContainer, .gifAnimationOverlay, #contentNoAnimation, #contentIntro .introImageContainer, #contentOutro .introImageContainer, #contentIntro #introContentContainer, #contentOutro #introContentContainer {
   display: flex;
   justify-content: center;
   align-items: center; }
@@ -261,30 +261,37 @@ body, html {
   #contentNoAnimation #noAnimationContentText {
     padding: 20px; }
 
-#contentOutro {
+/*
+#contentOutro{
   width: 100%;
-  height: 100%; }
-  #contentOutro #outroContentContainer {
+  height: 100%;
+
+  #outroContentContainer{
+    @extend .flexbox;
     height: 100%;
     color: white;
     background: url("../assets/outro.jpg") no-repeat;
-    background-size: cover; }
-  #contentOutro .outroImage {
+    background-size: cover;
+  }
+  .outroImage{
     width: 100%;
     height: auto;
-    padding-bottom: 4em; }
-  #contentOutro #outroTextContainer {
+    padding-bottom: 4em;
+  }
+  #outroTextContainer{
     position: relative;
     width: 100%;
-    height: 100%; }
-
-#contentIntro {
+    height: 100%;
+  }
+}
+*/
+#contentIntro, #contentOutro {
   height: 86%; }
-  #contentIntro .introImageContainer {
+  #contentIntro .introImageContainer, #contentOutro .introImageContainer {
     width: 100%;
     height: 100%;
     position: relative; }
-  #contentIntro .introImage {
+  #contentIntro .introImage, #contentOutro .introImage {
     /*
     float: right;
     display: block;
@@ -294,19 +301,19 @@ body, html {
     bottom: 0;
     */ }
   @media screen and (orientation: landscape) {
-    #contentIntro #introImageContainer {
+    #contentIntro #introImageContainer, #contentOutro #introImageContainer {
       width: 50%; }
-    #contentIntro #introContentContainer {
+    #contentIntro #introContentContainer, #contentOutro #introContentContainer {
       width: 50%; }
-    #contentIntro img {
+    #contentIntro img, #contentOutro img {
       height: auto;
       width: 100%; } }
   @media screen and (orientation: portrait) {
-    #contentIntro #introImageContainer {
+    #contentIntro #introImageContainer, #contentOutro #introImageContainer {
       height: 50%; }
-    #contentIntro #introContentContainer {
+    #contentIntro #introContentContainer, #contentOutro #introContentContainer {
       height: 50%; }
-    #contentIntro img {
+    #contentIntro img, #contentOutro img {
       width: auto;
       height: 100%; } }
 
